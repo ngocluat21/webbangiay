@@ -3,13 +3,14 @@ include "../model/pdo.php";
 include "../model/danhmuc.php";
 include "../model/sanpham.php";
 include "../model/color_size.php";
+include "../model/binhluan.php";
 include "header.php";
 
 //controller
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
-        //danh mục
+            //danh mục
         case 'adddm':
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
                 $tendm = $_POST['tendm'];
@@ -29,7 +30,7 @@ if (isset($_GET['act'])) {
             break;
         case 'suadm':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                $dm = loadone_danhmuc( $_GET['id']);
+                $dm = loadone_danhmuc($_GET['id']);
             }
             include "danhmuc/update.php";
             break;
@@ -41,7 +42,6 @@ if (isset($_GET['act'])) {
                 $thongbao = "Cập nhật thành công";
             } else {
                 $thongbao = "Cập nhật không thành công";
-
             }
             $listdm = loadall_danhmuc();
             include "danhmuc/list.php";
@@ -49,7 +49,7 @@ if (isset($_GET['act'])) {
 
 
 
-        //tài khoản
+            //tài khoản
         case 'addtk':
             include "taikhoan/add.php";
             break;
@@ -62,7 +62,7 @@ if (isset($_GET['act'])) {
         case 'updatetk':
             include "taikhoan/list.php.php";
             break;
-        //sản phẩm
+            //sản phẩm
         case 'addsp':
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
                 $iddm = $_POST['iddm'];
@@ -114,7 +114,7 @@ if (isset($_GET['act'])) {
             break;
         case 'suamau':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                $mau = loadone_mau( $_GET['id']);
+                $mau = loadone_mau($_GET['id']);
             }
             include "color_size/update_m.php";
             break;
@@ -131,7 +131,7 @@ if (isset($_GET['act'])) {
             break;
         case 'suasize':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                $size = loadone_size( $_GET['id']);
+                $size = loadone_size($_GET['id']);
             }
             include "color_size/update_s.php";
             break;
@@ -159,11 +159,11 @@ if (isset($_GET['act'])) {
         case 'xoasp':
             include "sanpham/list.php";
             break;
-   
-        // Sản phẩm biến thể
+
+            // Sản phẩm biến thể
         case 'suasp':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                $pro = loadone_sanpham($_GET['id']); 
+                $pro = loadone_sanpham($_GET['id']);
             }
             $list_m = loadall_mau();
             $list_s = loadall_size();
@@ -182,9 +182,7 @@ if (isset($_GET['act'])) {
                 $target_dir = "../upload/";
                 $target_file = $target_dir . basename($_FILES['img']['name']);
                 if (move_uploaded_file($_FILES['img']['tmp_name'], $target_file)) {
-                    
                 } else {
-                    
                 }
                 update_sanpham($id, $iddm, $namepro, $price, $discount, $hinh, $mota);
                 $thongbao = "Cập nhật thành công";
@@ -195,7 +193,7 @@ if (isset($_GET['act'])) {
                 $idsize = $_POST['idsize'];
                 $soluong = $_POST['soluong'];
                 insertOrUpdate_spbt($idpro, $idmau, $idsize, $soluong);
-            } 
+            }
             $list_m = loadall_mau();
             $list_s = loadall_size();
             $listdm = loadall_danhmuc();
@@ -205,6 +203,15 @@ if (isset($_GET['act'])) {
 
             //binhluan
         case 'dsbl':
+            if (isset($_POST['block'], $_GET['id'])) {
+                update_status_bl0($_GET['id']);
+            } elseif (isset($_POST['active'], $_GET['id'])) {
+                update_status_bl1($_GET['id']);
+            }
+            $listbinhluan = loadall_binhluan(0);
+            include "binhluan/list.php";
+            break;
+        case 'xoabl&id':
             include "binhluan/list.php";
             break;
         case 'thongke':
