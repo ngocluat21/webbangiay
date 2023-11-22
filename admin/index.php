@@ -4,6 +4,8 @@ include "../model/danhmuc.php";
 include "../model/sanpham.php";
 include "../model/color_size.php";
 include "../model/binhluan.php";
+include "../model/taikhoan.php";
+include "../model/thongke.php";
 include "header.php";
 
 //controller
@@ -50,10 +52,11 @@ if (isset($_GET['act'])) {
 
 
             //tài khoản
-        case 'addtk':
+        case 'addtk':   
             include "taikhoan/add.php";
             break;
         case 'dskh':
+            $listtaikhoan = loadall_taikhoan();
             include "taikhoan/list.php";
             break;
         case 'xoatk':
@@ -215,9 +218,11 @@ if (isset($_GET['act'])) {
             include "binhluan/list.php";
             break;
         case 'thongke':
+            $listthongke = loadall_thongke();
             include "thongke/list.php";
             break;
         case 'bieudo':
+            $listthongke = loadall_thongke();
             include "thongke/bieudo.php";
             break;
 
