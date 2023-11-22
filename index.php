@@ -36,6 +36,9 @@
                 $list_s = loadall_size();
                 include "view/sanphamct.php";
                 break;
+            case "addgiohang":
+                include "view/giohang/giohang.php";
+                break;
             case "dangky":
                 include "view/taikhoan/dangky.php";
                 break;
