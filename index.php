@@ -8,7 +8,7 @@ include "model/color_size.php";
 include "model/danhmuc.php";
 include "model/taikhoan.php";
 
-if(!isset($_SESSION['mycart'])) {
+if (!isset($_SESSION['mycart'])) {
     $_SESSION['mycart'] = [];
 }
 

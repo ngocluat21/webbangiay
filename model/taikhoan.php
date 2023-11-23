@@ -1,12 +1,7 @@
 <?php
-<<<<<<< HEAD
-function insert_taikhoan($username, $pass, $email)
+function insert_taikhoan($username, $pass, $email, $address, $tel)
 {
-    $sql = "insert into taikhoan(username,pass,email) values('$username','$pass','$email')";
-=======
-function insert_taikhoan($username,$pass,$email, $address, $tel){
-    $sql="insert into taikhoan(username,pass,email, address, tel) values('$username','$pass','$email', '$address', '$tel')";
->>>>>>> b377a404adfee57354b0c94b140673a472e28c15
+    $sql = "insert into taikhoan(username,pass,email, address, tel) values('$username','$pass','$email', '$address', '$tel')";
     pdo_execute($sql);
 }
 function checkusername($username, $pass)
