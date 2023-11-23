@@ -8,7 +8,9 @@ include "model/color_size.php";
 include "model/danhmuc.php";
 include "model/taikhoan.php";
 
-
+if(!isset($_SESSION['mycart'])) {
+    $_SESSION['mycart'] = [];
+}
 
 $loadsp = loadall_sanpham_home();
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
@@ -41,6 +43,21 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $list_s = loadall_size();
             include "view/sanphamct.php";
             break;
+        case "addgiohang":
+            if (isset($_POST['addgiohang']) && ($_POST['addgiohang'])) {
+                $id = $_POST['id'];
+                $img = $_POST['img'];
+                $namepro = $_POST['namepro'];
+                $price = $_POST['price'];
+                $discount = $_POST['discount'];
+                $mau = $_POST['mau'];
+                $size = $_POST['size'];
+                $spbtgh = [$id, $img, $namepro, $price, $discount, $mau, $size];
+                array_push($_SESSION['mycart'], $spbtgh);
+            }
+            include "view/giohang/giohang.php";
+            break;
+
         case "dangky":
             if (isset($_POST['dangky']) && ($_POST['dangky'])) {
                 $username = $_POST['username'];

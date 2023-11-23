@@ -29,8 +29,8 @@
                             <span> Remember password.</span>
                         </label>
                         <div class="footer-action">
-                            <input type="submit" value="dangnhap" name="dangnhap" class="auth-submit">
-                            <a href="register.html" class="auth-btn-direct">Sign Up</a>
+                            <input type="submit" value="Đăng nhập" name="dangnhap" class="auth-submit">
+                            <a href="register.html" class="auth-btn-direct">Đăng ký</a>
                         </div>
                     </form>
                     <div class="auth-forgot-password">

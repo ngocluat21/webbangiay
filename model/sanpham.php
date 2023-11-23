@@ -56,23 +56,19 @@
         pdo_execute($sql);
     }
     function loadone_spbt($idpro) {
-        $sql = "SELECT spbt.id as mabt, mausp.id as mamau, mausp.mau as mau, size.id as masize, size.size as size
+        $sql = "SELECT spbt.id as mabt, sanpham.img as img, sanpham.namepro as namepro, sanpham.price as price, sanpham.discount as discount, mausp.mau as mau, size.size as size
                 FROM spbt 
+                JOIN sanpham ON spbt.idpro = sanpham.id
                 JOIN mausp ON spbt.idmau = mausp.id 
                 JOIN size ON spbt.idsize = size.id 
                 WHERE spbt.idpro = $idpro AND spbt.status = 1 
-                -- GROUP BY spbt.id, mausp.id, size.id
                 ";
         $list_spbt = pdo_query($sql);
         return $list_spbt;
     }
-    // function load_soluongbt($id) {
-    //     $sql = "SELECT spbt.id, SUM(spbt.soluong) as soluong FROM spbt join sanpham WHERE spbt.idpro=$id";
-    //     $slbt = pdo_query($sql);
-    //     return $slbt;
-    // }
-    function load_soluongbt($id) {
-        $sql = "SELECT SUM(spbt.soluong) as soluong FROM spbt WHERE spbt.idpro = $id";
+
+    function load_soluongbt($idpro) {
+        $sql = "SELECT SUM(spbt.soluong) as soluong FROM spbt WHERE spbt.idpro = $idpro";
         $slbt = pdo_query($sql);
         return $slbt;
     }
