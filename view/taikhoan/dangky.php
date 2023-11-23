@@ -50,8 +50,8 @@
                             <span> I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</span>
                         </label>
                         <div class="footer-action">
-                            <input type="submit" name="dangky" value="Sign Up" class="auth-submit">
-                            <a href="login.html" class="auth-btn-direct">Sign In</a>
+                            <input type="submit" name="dangky" value="Đăng ký" class="auth-submit">
+                            <a href="index.php?act=dangnhap" class="auth-btn-direct">Đăng nhập</a>
                         </div>
                         <h2 class="thongbao">
 

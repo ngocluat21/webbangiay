@@ -1,28 +1,29 @@
         <div class="content">
             <div class="box_ct">
                 <?php 
-                    extract($sanpham); 
+                foreach($spbt as $bienthe) {
+                    extract($bienthe); 
+                }
                     $hinh = "upload/";
                 ?>
                 <div class="box_img">
-                    <img src="<?=$hinh.$img?>" alt="">
+                    <img src="<?=$hinh.$bienthe['img']?>" alt="">
                 </div>
                 <div class="boxinfo">
-                    <h1><?= $namepro?></h1>
+                    <h1><?= $bienthe['namepro']?></h1>
                     <div class="price">
-                        <div><?=$price?> đ</div>
+                        <div><?=$bienthe['price']?> đ</div>
                     </div>
                    
                     
                     <div class="color">
                         <span>Chọn color: </span>
                         <strong id="selectedColor"></strong>
-                        <div class="chose_color" id="colorButtonsContainer"> <!-- Đặt ID tại đây -->
+                        <div class="chose_color" id="colorButtonsContainer"> 
                             <?php 
                             $uniqueColors = array(); 
                             foreach($spbt as $bienthe) {
                                 $color = $bienthe['mau'];
-                                // var_dump($color);
                                 // Kiểm tra xem color đã xuất hiện chưa
                                 if (!in_array($color, $uniqueColors)) {
                                     $uniqueColors[] = $color; // Thêm color vào mảng để kiểm tra lần sau
@@ -35,7 +36,7 @@
                     <div class="size">
                         <span>Chọn size: </span>
                         <strong id="selectedSize"></strong>
-                        <div class="chose_size" id="sizeButtonsContainer"> <!-- Đặt ID tại đây -->
+                        <div class="chose_size" id="sizeButtonsContainer"> 
                             <?php 
                             $uniqueSizes = array(); 
                             foreach($spbt as $bienthe) {
@@ -52,15 +53,30 @@
                     <div class="boxaddcart">
                         <div class="quantity" id="result">
                             <span>Chọn số lượng: </span>
-                            <strong id="displayQuantity">1</strong>
+                            <strong id="displayQuantity"></strong>
                         </div>
-                        <div class="remote_ct">
-                            <button onclick="decreaseQuantity()"><i class="fa fa-minus"></i></button>
-                            <input type="text" name="soluong" id="quantity" value="1">
-                            <button onclick="increaseQuantity()"><i class="fa fa-plus"></i></button>
-                            <a class ="btn_gh_ct" href="giohang.html">
-                                <input style="width: 200px;" type="button" value="Thêm vào giỏ hàng">
-                            </a>
+                        <div class="remote_ct quantity-container">
+                            <button class="decrease"><i class="fa fa-minus"></i></button>
+                            <input type="text" name="soluong" class="quantitybtn" value="1">
+                            <button class="increase"><i class="fa fa-plus"></i></button>
+                            <div class="btn_gh_ct">
+                                <?php foreach($spbt as $giohang) {
+                                    extract($giohang);
+                                    echo '
+                                        <form action="index.php?act=addgiohang" method="post">
+                                            <input type="hidden" name="id" value="'.$giohang['mabt'].'">
+                                            <input type="hidden" name="img" value="'.$giohang['img'].'">
+                                            <input type="hidden" name="namepro" value="'.$giohang['namepro'].'">
+                                            <input type="hidden" name="price" value="'.$giohang['price'].'">
+                                            <input type="hidden" name="discount" value="'.$giohang['discount'].'">
+                                            <input type="hidden" name="mau" value="'.$giohang['mau'].'">
+                                            <input type="hidden" name="size" value="'.$giohang['size'].'">
+                                            <input style="width: 200px;" type="submit" name="addgiohang" value="Thêm vào giỏ hàng">
+                                        </form>
+                                        ';
+                                    }
+                                    ?>
+                                </div>
                             <a href="thanhtoan.html">
                                 <input type="button" value="Mua ngay">
                             </a>
