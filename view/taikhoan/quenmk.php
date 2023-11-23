@@ -7,7 +7,7 @@
                         <h2 class="auth-form-title">
                             FORGOT PASSWORD
                         </h2>
-                        
+
                         <form class="login-form">
                             <input type="email" class="auth-form-input" placeholder="Email">
                             <div class="input-icon">
@@ -15,7 +15,7 @@
                             </div>
                             <label class="btn active">
                                 <input type="checkbox" name='email1' checked>
-                                <i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i> 
+                                <i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>
                                 <span> Remember password.</span>
                             </label>
                             <div class="footer-action">
