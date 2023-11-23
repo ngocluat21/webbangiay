@@ -18,29 +18,29 @@
                                 extract($sanpham);
                                 $link = "index.php?act=sanphamct&id=".$id;
                                 $hinh = $hinhpath.$img;
-                                echo 
-                       '         <div class="box_pro">
-                                    <div class="img_pro">
-                                        <a href="'.$link.'">
-                                            <img src="'.$hinh.'" alt="">
-                                        </a>
-                                        <div class="sm_img">
-                                            <img src="assets/images/Asset_4.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="remote">
-                                        <div class="rm"><a href="sanphamct.php">'.$namepro.'</a></div>
-                                        <div class="price flex_c">
-                                            <p>'.$price.'<u>đ</u></p>
-                                            <div class="old_price">
-                                                <del>'.$discount.'đ</del>
+                                echo '         
+                                    <div class="box_pro">
+                                        <div class="img_pro">
+                                            <a href="'.$link.'">
+                                                <img src="'.$hinh.'" alt="">
+                                            </a>
+                                            <div class="sm_img">
+                                                <img src="assets/images/Asset_4.png" alt="">
                                             </div>
                                         </div>
-                                        <a href="giohang.html">
-                                            <input type="button" value="Thêm vào giỏ hàng">
-                                        </a>
-                                    </div>
-                                </div>';
+                                        <div class="remote">
+                                            <div class="rm"><a href="sanphamct.php">'.$namepro.'</a></div>
+                                            <div class="price flex_c">
+                                                <p>'.$price.'<u>đ</u></p>
+                                                <div class="old_price">
+                                                    <del>'.$discount.'đ</del>
+                                                </div>
+                                            </div>
+                                            <a href="index.php?act=addgiohang">
+                                                <input type="button" value="Thêm vào giỏ hàng">
+                                            </a>
+                                        </div>
+                                    </div>';
                             }
                         ?>
                         <!-- <div class="box_pro">
@@ -187,6 +187,12 @@
                         </div> -->
                     </div>
                 </div>
+
+                <!-- Tài liệu cần thiết
+                float ceil( float value )
+                float floor( float value )
+                float round( float value [, int precision] ) -->
+
 
                 <div class="kind_pro">
                     <div class="title">

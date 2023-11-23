@@ -160,7 +160,7 @@ input[type="submit" i],[type="reset" i],[type="button" i] {
 }
 .grid3 {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 200px;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
 }
 .flxend {

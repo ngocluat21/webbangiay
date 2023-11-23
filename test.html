@@ -79,3 +79,16 @@ document.addEventListener("DOMContentLoaded", function() {
     </script>
 </body>
 </html>
+// $uniqueProducts = [];
+// foreach ($_SESSION['mycart'] as $cartItem) {
+//     $productID = $cartItem[0];
+//     if (!isset($uniqueProducts[$productID])) {
+//         $uniqueProducts[$productID] = $cartItem;
+//     } else {
+//         // Nếu sản phẩm đã tồn tại, cộng thêm số lượng
+//         $uniqueProducts[$productID][7] += $cartItem[7];
+//     }
+// }
+
+// Gán lại giỏ hàng với các sản phẩm đã được gộp
+// $_SESSION['mycart'] = array_values($uniqueProducts);

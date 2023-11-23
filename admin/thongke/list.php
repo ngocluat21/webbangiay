@@ -23,7 +23,7 @@
                             <td>'.$countsp.'</td>
                             <td>'.$maxprice.'</td>
                             <td>'.$minprice.'</td>
-                            <td>'.$avgprice.'</td>
+                            <td>'.round($avgprice).'</td>
                         </tr>
                                 ';
                             }

@@ -1,4 +1,4 @@
-<div class="row">
+        <div class="row">
             <div class="row frmtitle">
                 <h1>DANH SÁCH LOẠI HÀNG HÓA</h1>
             </div>

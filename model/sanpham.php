@@ -3,6 +3,7 @@
         $sql = "INSERT INTO sanpham(namepro, price, discount, img, mota, iddm, status) VALUES('$namepro', '$price', '$discount', '$img', '$mota', '$iddm', 1)";
         pdo_execute($sql); 
     }
+
     function loadone_sanpham($id) {
         $sql = "SELECT * FROM sanpham WHERE id=".$id;
         $pro = pdo_query_one($sql);
@@ -14,14 +15,17 @@
         $listsp = pdo_query($sql);
         return $listsp;
     }
+
     function loadall_sanpham_home() {
-        $sql = "SELECT sanpham.id, sanpham.namepro, sanpham.price, sanpham.discount, sanpham.img, sanpham.mota FROM sanpham JOIN danhmuc ON sanpham.iddm = danhmuc.id WHERE danhmuc.status = 1 ORDER BY sanpham.id DESC LIMIT 0,3";
+        $sql = "SELECT sanpham.id, sanpham.namepro, sanpham.price, sanpham.discount, sanpham.img, sanpham.mota 
+                FROM sanpham 
+                JOIN danhmuc ON sanpham.iddm = danhmuc.id 
+                WHERE danhmuc.status = 1 
+                ORDER BY sanpham.id DESC LIMIT 0,3";
         $loadall = pdo_query($sql);
         return $loadall;
     }
 
-    
-    
     function load_sp_cungloai($id, $iddm) {
         $sql = "SELECT * FROM sanpham WHERE iddm = ".$iddm." AND id <>".$id;
         $spcl = pdo_query($sql);
@@ -32,6 +36,7 @@
         $sql = "UPDATE sanpham SET status=0 WHERE id=".$id;
         pdo_execute($sql);
     }
+
     function update_status_sp1($id) {
         $sql = "UPDATE sanpham SET status=1 WHERE id=".$id;
         pdo_execute($sql);
@@ -42,6 +47,7 @@
         $sql = "INSERT INTO spbt(idpro, idmau, idsize, soluong, status) VALUES($idpro, '$idmau', $idsize, $soluong, 1";
         pdo_execute($sql);
     }
+
     function update_sanpham($id, $iddm, $namepro, $price, $discount, $hinh, $mota) {
         if($hinh != "") {
             $sql = "UPDATE sanpham SET iddm = '".$iddm."', namepro = '".$namepro."', price = '".$price."', discount = '".$discount."', img = '".$hinh."', mota = '".$mota."' WHERE id =".$id;
@@ -55,6 +61,7 @@
         $sql = "INSERT INTO spbt (idpro, idmau, idsize, soluong, status) VALUES ($idpro, $idmau, $idsize, $soluong, 1)";
         pdo_execute($sql);
     }
+
     function loadone_spbt($idpro) {
         $sql = "SELECT spbt.id as mabt, sanpham.img as img, sanpham.namepro as namepro, sanpham.price as price, sanpham.discount as discount, mausp.mau as mau, size.size as size
                 FROM spbt 
@@ -73,10 +80,7 @@
         return $slbt;
     }
     
-
-
-    
-
+    // cập nhật số lượng khi trùng sản phẩm
     function insertOrUpdate_spbt($idpro, $idmau, $idsize, $soluong) {
         // Kiểm tra xem biến thể đã tồn tại chưa
         $existing_spbt = get_spbt_by_idpro_and_ids($idpro, $idmau, $idsize);

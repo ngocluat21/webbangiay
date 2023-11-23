@@ -8,7 +8,7 @@
                             FORGOT PASSWORD
                         </h2>
                         
-                        <form class="login-form">
+                        <form class="index.php?act=quenmk">
                             <input type="email" class="auth-form-input" placeholder="Email">
                             <div class="input-icon">
                                 <input type="text" class="auth-form-input" placeholder="Your password">
@@ -19,7 +19,7 @@
                                 <span> Remember password.</span>
                             </label>
                             <div class="footer-action">
-                                <input type="submit" value="Send" class="auth-submit">
+                                <input type="submit" value="Gửi" class="auth-submit">
                             </div>
                         </form>
                     </div>

@@ -1,5 +1,7 @@
-        <div class="content">
-            <?php foreach($_SESSION['mycart'] as $cart) {
+        <div class="content" style="min-height: 450px">
+            <?php 
+                $ct = 1;
+                foreach($_SESSION['mycart'] as $cart) {
                 $img_path = "../upload/".$cart[1];
                 echo '
                     <div class="cart">
@@ -10,29 +12,45 @@
                             <div class="option">
                                 <span>MÀU: '.$cart[5].'</span><span>SIZE: '.$cart[6].'</span>
                             </div>
+                            <strong style="display: none;" id="displayQuantity"></strong>
                             <div class="remote_ct quantity-container">
                                 <button class="decrease"><i class="fa fa-minus"></i></button>
-                                <input type="text" name="soluong" class="quantitybtn" value="1">
+                                <input type="text" name="soluong" class="quantitybtn" value="'.(($cart[7] == "") ? $cart[7] = 1 : (int)$cart[7]).'">
                                 <button class="increase"><i class="fa fa-plus"></i></button>
                             </div>
                         </div>
                         <div class="icon_canxel">
-                            <i class="fa-solid fa-xmark"></i>
+                            <a href="index.php?act=delcart&idcart="'.($ct++).'><i class="fa-solid fa-xmark"></i></a>
                         </div>
                     </div>
                 ';
             }
             ?>
-           
-            <div class="btn_action">
-                <a href="#">
-                    <input type="button" value="Xóa giỏ hàng">
-                </a>
-                <a href="index.html">
-                    <input type="button" value="Tiếp tục mua hàng">
-                </a>
-                <a href="thanhtoan.html">
-                    <input type="button" value="Mua ngay">
-                </a>
-            </div>
+            <?php if ($_SESSION['mycart'] == []) {
+                echo '
+                 <div class="h2cter">
+                        <h2 class="thongbao">Chưa có sản phẩm nào trong giỏ hàng</h2>
+                        <div class="btn_action">
+                            <a href="index.php">
+                                <input type="button" value="Tiếp tục mua hàng">
+                            </a>
+                        </div>
+                 </div>
+                ';
+            } else {
+                echo '
+                    <div class="btn_action">
+                        <a href="index.php?act=delall">
+                            <input type="button" value="Xóa giỏ hàng">
+                        </a>
+                        <a href="index.php">
+                            <input type="button" value="Tiếp tục mua hàng">
+                        </a>
+                        <a href="#">
+                            <input type="button" value="Mua ngay">
+                        </a>
+                    </div>
+                ';
+            }
+            ?>
         </div>

@@ -11,7 +11,7 @@ include "model/taikhoan.php";
 if(!isset($_SESSION['mycart'])) {
     $_SESSION['mycart'] = [];
 }
-
+// unset($_SESSION['mycart']);
 $loadsp = loadall_sanpham_home();
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
@@ -28,7 +28,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
         case "hoidap":
             include "view/hoidap.php";
             break;
-
+        
+        // sản phẩm
         case "sanphamct":
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $sanpham = loadone_sanpham($_GET['id']);
@@ -43,6 +44,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $list_s = loadall_size();
             include "view/sanphamct.php";
             break;
+
+        // giỏ hàng    
         case "addgiohang":
             if (isset($_POST['addgiohang']) && ($_POST['addgiohang'])) {
                 $id = $_POST['id'];
@@ -52,12 +55,26 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $discount = $_POST['discount'];
                 $mau = $_POST['mau'];
                 $size = $_POST['size'];
-                $spbtgh = [$id, $img, $namepro, $price, $discount, $mau, $size];
+                $soluong = $_POST['soluong'];
+                $spbtgh = [$id, $img, $namepro, $price, $discount, $mau, $size, $soluong];
                 array_push($_SESSION['mycart'], $spbtgh);
             }
             include "view/giohang/giohang.php";
             break;
-
+        case "delcart":
+            if (isset($_GET['idcart'])) {
+                $idCart = (int)$_GET['idcart'];
+                array_splice($_SESSION['mycart'], $idCart, 1);
+            } else {
+                $_SESSION['mycart'] = [];
+            }
+            header("Location: index.php?act=addgiohang");
+            break;
+        case "delall":
+            $_SESSION['mycart'] = [];
+            include "view/giohang/giohang.php";
+            break;
+        // tài khoản
         case "dangky":
             if (isset($_POST['dangky']) && ($_POST['dangky'])) {
                 $username = $_POST['username'];

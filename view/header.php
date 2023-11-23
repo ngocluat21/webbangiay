@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="assets/css/slider.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
     <link rel="stylesheet" href="assets/css/loginandregister.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" 
+          integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" 
+    />
 </head>
 <body>
     <div class="contaier">
@@ -51,7 +53,7 @@
                             </a>
                         </li>
                         <li class="dropdown_item">
-                            <a href="index.php?act=quenmk" class="dropdown_link">
+                            <a href="index.php?act=laymk" class="dropdown_link">
                                 <span class="dropdown_text">Quên mật khẩu</span>
                             </a>
                         </li>
@@ -70,8 +72,15 @@
                     </ul>
                 </div>
                 <div class="icon_cart">
-                    <span class="quatity_cart">0</span>
-                    <a href="giohang.html"><i class="fa-solid fa-bag-shopping fa-lg"></i></a>
+                    <?php 
+                        if(isset($_SESSION['mycart']) && is_array($_SESSION['mycart'])) {
+                            $cart = count($_SESSION['mycart']);
+                        } else {
+                            $cart = 0;
+                        }
+                    ?>
+                    <span class="quatity_cart"><?=$cart?></span>
+                    <a href="index.php?act=addgiohang"><i class="fa-solid fa-bag-shopping fa-lg"></i></a>
                 </div>
             </div>
         </div>

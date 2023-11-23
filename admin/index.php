@@ -12,7 +12,7 @@ include "header.php";
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
-            //danh mục
+        //danh mục
         case 'adddm':
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
                 $tendm = $_POST['tendm'];
@@ -51,7 +51,7 @@ if (isset($_GET['act'])) {
 
 
 
-            //tài khoản
+        //tài khoản
         case 'addtk':   
             include "taikhoan/add.php";
             break;
@@ -65,7 +65,7 @@ if (isset($_GET['act'])) {
         case 'updatetk':
             include "taikhoan/list.php.php";
             break;
-            //sản phẩm
+        //sản phẩm
         case 'addsp':
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
                 $iddm = $_POST['iddm'];
@@ -159,11 +159,8 @@ if (isset($_GET['act'])) {
             $listdm = loadall_danhmuc();
             include "sanpham/list.php";
             break;
-        case 'xoasp':
-            include "sanpham/list.php";
-            break;
 
-            // Sản phẩm biến thể
+        // Sản phẩm biến thể
         case 'suasp':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $pro = loadone_sanpham($_GET['id']);
@@ -204,7 +201,7 @@ if (isset($_GET['act'])) {
             include "sanpham/list.php";
             break;
 
-            //binhluan
+        //binhluan
         case 'dsbl':
             if (isset($_POST['block'], $_GET['id'])) {
                 update_status_bl0($_GET['id']);
