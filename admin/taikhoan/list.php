@@ -16,8 +16,7 @@
                             <th>VAI TRÒ</th>
                             <th></th>
                         </tr>
-                        
-                        <!-- <?php
+                        <?php
                         foreach($listtaikhoan as $taikhoan){
                             extract($taikhoan);
                             $suatk="index.php?act=updatetk=".$id;
@@ -25,7 +24,7 @@
                             echo '<tr>
                             <td><input type="checkbox" name="" id=""></td>
                             <td>'.$id.'</td>
-                            <td>'.$user.'</td>
+                            <td>'.$username.'</td>
                             <td>'.$pass.'</td>
                             <td>'.$email.'</td>
                             <td>'.$address.'</td>
@@ -37,7 +36,7 @@
                             </td>
                         </tr>';
                         }
-                        ?> -->
+                        ?>
                         
                     </table>
                 </div>
