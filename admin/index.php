@@ -63,6 +63,7 @@ if (isset($_GET['act'])) {
         case 'xoatk':
             $id = $_GET['id'];
             delete_taikhoan($id);
+            $sql = "delete from taikhoan where id=" . $id;
             $listtaikhoan = loadall_taikhoan();
             include "taikhoan/list.php";
             break;
