@@ -52,7 +52,7 @@ if (isset($_GET['act'])) {
 
 
             //tài khoản
-        case 'addtk':   
+        case 'addtk':
             include "taikhoan/add.php";
             break;
         case 'dskh':
@@ -60,6 +60,10 @@ if (isset($_GET['act'])) {
             include "taikhoan/list.php";
             break;
         case 'xoatk':
+            $id = $_GET['id'];
+            delete_taikhoan($id);
+            $sql = "delete from taikhoan where id=" . $id;
+            $listtaikhoan = loadall_taikhoan();
             include "taikhoan/list.php";
             break;
         case 'updatetk':
