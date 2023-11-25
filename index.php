@@ -8,7 +8,7 @@ include "model/color_size.php";
 include "model/danhmuc.php";
 include "model/taikhoan.php";
 
-if(!isset($_SESSION['mycart'])) {
+if (!isset($_SESSION['mycart'])) {
     $_SESSION['mycart'] = [];
 }
 
@@ -86,7 +86,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
             include "view/taikhoan/dangnhap.php";
             break;
-        case "laymk":
+        case "quenmk":
             if (isset($_POST['gui']) && ($_POST['gui'])) {
                 $email = $_POST['email'];
                 $checkemail = checkemail($email);
