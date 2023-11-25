@@ -77,18 +77,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     </script>
+    <form method="post" action="test.php">
+        <div class="pay_method">
+            <input type="radio" name="bill_pttt" value="Trả tiền khi nhận hàng">
+            <label>Trả tiền khi nhận hàng</label>
+    
+            <input type="radio" name="bill_pttt" value="Chuyển khoản ngân hàng">
+            <label>Chuyển khoản ngân hàng</label>
+    
+            <input type="radio" name="bill_pttt" value="Thanh toán online">
+            <label>Thanh toán online</label>
+    
+            <input type="submit" name="submit" value="Xác nhận">
+        </div>
+    </form>
+    <?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['bill_pttt'])) {
+        $selectedPaymentMethod = $_POST['bill_pttt'];
+
+        // Xử lý dữ liệu ở đây, ví dụ:
+        echo 'Phương thức thanh toán đã chọn: ' . $selectedPaymentMethod;
+    }
+}
+?>
+
 </body>
 </html>
-// $uniqueProducts = [];
-// foreach ($_SESSION['mycart'] as $cartItem) {
-//     $productID = $cartItem[0];
-//     if (!isset($uniqueProducts[$productID])) {
-//         $uniqueProducts[$productID] = $cartItem;
-//     } else {
-//         // Nếu sản phẩm đã tồn tại, cộng thêm số lượng
-//         $uniqueProducts[$productID][7] += $cartItem[7];
-//     }
-// }
-
-// Gán lại giỏ hàng với các sản phẩm đã được gộp
-// $_SESSION['mycart'] = array_values($uniqueProducts);

@@ -15,7 +15,7 @@
                             <strong style="display: none;" id="displayQuantity"></strong>
                             <div class="remote_ct quantity-container">
                                 <button class="decrease"><i class="fa fa-minus"></i></button>
-                                <input type="text" name="soluong" class="quantitybtn" value="'.(($cart[7] == "") ? $cart[7] = 1 : (int)$cart[7]).'">
+                                <input type="text" name="soluong" class="quantitybtn" value="'.(($cart[7] == "") ? (int)$cart[7] = 1 : (int)$cart[7]).'">
                                 <button class="increase"><i class="fa fa-plus"></i></button>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                         <a href="index.php">
                             <input type="button" value="Tiếp tục mua hàng">
                         </a>
-                        <a href="#">
+                        <a href="index.php?act=thanhtoan">
                             <input type="button" value="Mua ngay">
                         </a>
                     </div>

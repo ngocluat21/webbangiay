@@ -109,7 +109,7 @@
                 <input type="hidden" name="id" value="<?php echo $pro['id'];?>">
                 <input type="submit" name="capnhat" value="Cập nhập">
                 <input type="reset" value="Nhập lại">
-                <input type="submit" name="themmoi" value="Thêm">
+                <input type="submit" name="themmoi" value="Thêm biến thể">
                 <a href="index.php?act=listsp">
                     <input type="button" value="Danh sách">
                 </a>

@@ -22,7 +22,7 @@
             <div class="menu">
                 <ul>
                     <li><a href="index.php">Trang chủ</a></li>
-                    <li><a href="sanpham.php">Sản phẩm</a></li>
+                    <li><a href="index.php?act=sanpham">Sản phẩm</a></li>
                     <li><a href="index.php?act=gioithieu">Giới thiệu</a></li>
                     <li><a href="index.php?act=lienhe">Liên hệ</a></li>
                     <li><a href="index.php?act=hoidap">Hỏi đáp</a></li>
@@ -73,13 +73,19 @@
                 </div>
                 <div class="icon_cart">
                     <?php 
+                        $cartCount = 0;
+                        // var_dump($cart);
                         if(isset($_SESSION['mycart']) && is_array($_SESSION['mycart'])) {
-                            $cart = count($_SESSION['mycart']);
+                            foreach($_SESSION['mycart'] as $cart) {
+                                // var_dump($cart[7]);
+                                // var_dump($cartCount);
+                                $cartCount += (int)$cart[7];
+                            }
                         } else {
-                            $cart = 0;
+                            $cartCount = 0;
                         }
                     ?>
-                    <span class="quatity_cart"><?=$cart?></span>
+                    <span class="quatity_cart"><?=$cartCount?></span>
                     <a href="index.php?act=addgiohang"><i class="fa-solid fa-bag-shopping fa-lg"></i></a>
                 </div>
             </div>

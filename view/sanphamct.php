@@ -61,28 +61,43 @@
                             <button class="increase"><i class="fa fa-plus"></i></button>
                             <div class="btn_gh_ct">
                                 <form action="index.php?act=addgiohang" method="post">
-                                <?php foreach($spbt as $giohang) {
-                                    extract($giohang);
-                                    echo '
-                                            <input type="hidden" name="id" value="'.$giohang['mabt'].'">
-                                            <input type="hidden" name="img" value="'.$giohang['img'].'">
-                                            <input type="hidden" name="namepro" value="'.$giohang['namepro'].'">
-                                            <input type="hidden" name="price" value="'.$giohang['price'].'">
-                                            <input type="hidden" name="discount" value="'.$giohang['discount'].'">
-                                            <input type="hidden" id="inputColor" name="mau" >
-                                            <input type="hidden" id="inputSize" name="size" >
-                                            <input type="hidden" id="amount-hd" name="soluong">
-                                            ';
-                                        }
-                                        ?>
+                                    <?php foreach($spbt as $giohang) {
+                                        extract($giohang);
+                                        echo '
+                                                <input type="hidden" name="id" value="'.$giohang['mabt'].'">
+                                                <input type="hidden" name="img" value="'.$giohang['img'].'">
+                                                <input type="hidden" name="namepro" value="'.$giohang['namepro'].'">
+                                                <input type="hidden" name="price" value="'.$giohang['price'].'">
+                                                <input type="hidden" name="discount" value="'.$giohang['discount'].'">
+                                                <input type="hidden" id="inputColor" name="mau" value="">
+                                                <input type="hidden" id="inputSize" name="size" value="">
+                                                <input type="hidden" id="amount-hd" name="soluong" value="1">
+                                                ';
+                                            }
+                                    ?>
                                     <input style="width: 200px;" type="submit" name="addgiohang" value="Thêm vào giỏ hàng">
-                                 
+                                    
 
                                 </form>
                             </div>
-                            <a href="thanhtoan.html">
-                                <input type="button" value="Mua ngay">
-                            </a>
+                            <form action="index.php?act=thanhtoan" method="post">
+                                    <?php foreach($spbt as $giohang) {
+                                        extract($giohang);
+                                        echo '
+                                                <input type="hidden" name="id" value="'.$giohang['mabt'].'">
+                                                <input type="hidden" name="img" value="'.$giohang['img'].'">
+                                                <input type="hidden" name="namepro" value="'.$giohang['namepro'].'">
+                                                <input type="hidden" name="price" value="'.$giohang['price'].'">
+                                                <input type="hidden" name="discount" value="'.$giohang['discount'].'">
+                                                <input type="hidden" id="inputColor" name="mau" value="">
+                                                <input type="hidden" id="inputSize" name="size" value="">
+                                                <input type="hidden" id="amount-hd" name="soluong" value="1">
+                                                ';
+                                            }
+                                            ?>
+                                    <input style="width: 200px;" type="submit" name="thanhtoan" value="Thanh toán">
+                                    
+                                </form>
                         </div>
                         <div class="qua_bottom">
                             Còn lại: <?php foreach($slbt as $sl){echo $sl['soluong'];}; ?> sản phẩm
@@ -97,19 +112,20 @@
                 <div class="productct">
                     <?php foreach ($sanphamcl as $sp) {
                         extract($sp);
+                        $link = "index.php?act=sanphamct&id=".$id;
                         echo '
                             <div class="box_pro">
                                 <div class="img_pro">
-                                    <a href="sanphamct.html">
+                                    <a href="'.$link.'">
                                         <img src="'.$hinh.$img.'" alt="">
                                     </a>
                                 </div>
                                 <div class="remote">
-                                    <a href="index.php?act=sanphamct">'.$namepro.'</a>
+                                    <a href="'.$link.'">'.$namepro.'</a>
                                     <div class="price">
                                         <p>'.$price.'<u>đ</u></p>
                                     </div>
-                                    <a href="sanphamct.html">
+                                    <a href="index.php?act=addgiohang">
                                         <input type="button" value="Thêm vào giỏ hàng">
                                     </a>
                                 </div>

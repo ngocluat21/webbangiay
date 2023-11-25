@@ -42,6 +42,23 @@
         pdo_execute($sql);
     }
 
+    function load_sp_nb() {
+        $sql = "SELECT * FROM sanpham ORDER BY luotxem DESC LIMIT 0,3";
+        $listspnb = pdo_query($sql);
+        return $listspnb;
+    }
+
+    function load_sp_dg() {
+        $sql = "SELECT * FROM sanpham WHERE price = (SELECT price FROM sanpham GROUP BY price HAVING COUNT(id) > 1) LIMIT 0,3";
+        $dg = pdo_query($sql);
+        // SELECT sp1.*, sp2.* 
+        // FROM sanpham sp1
+        // JOIN sanpham sp2 ON sp1.price = sp2.price AND sp1.discount = sp2.discount
+        // WHERE sp1.id <> sp2.id
+        // LIMIT 0,3
+        return $dg;
+    }
+
     // Sản phẩm biến thể
     function insert_variant($idpro, $idmau, $idsize, $soluong) {
         $sql = "INSERT INTO spbt(idpro, idmau, idsize, soluong, status) VALUES($idpro, '$idmau', $idsize, $soluong, 1";
@@ -61,9 +78,13 @@
         $sql = "INSERT INTO spbt (idpro, idmau, idsize, soluong, status) VALUES ($idpro, $idmau, $idsize, $soluong, 1)";
         pdo_execute($sql);
     }
-
+    function loadall_bt() {
+        $sql = "SELECT * FROM spbt";
+        $allbt = pdo_query($sql);
+        return $allbt;
+    }
     function loadone_spbt($idpro) {
-        $sql = "SELECT spbt.id as mabt, sanpham.img as img, sanpham.namepro as namepro, sanpham.price as price, sanpham.discount as discount, mausp.mau as mau, size.size as size
+        $sql = "SELECT spbt.id as mabt, spbt.idpro as idpro, sanpham.img as img, sanpham.namepro as namepro, sanpham.price as price, sanpham.discount as discount, mausp.mau as mau, size.size as size
                 FROM spbt 
                 JOIN sanpham ON spbt.idpro = sanpham.id
                 JOIN mausp ON spbt.idmau = mausp.id 
@@ -73,6 +94,15 @@
         $list_spbt = pdo_query($sql);
         return $list_spbt;
     }
+    // function loadone_bt($idbt) {
+    //     $sql = "SELECT mausp.mau as mau, size.size as size 
+    //             FROM spbt 
+    //             JOIN mausp ON spbt.idmau = mausp.id
+    //             JOIN size ON spbt.idsize = size.id
+    //             WHERE spbt.id=".$idbt;
+    //     $bt = pdo_query_one($sql);
+    //     return $bt;
+    // }
 
     function load_soluongbt($idpro) {
         $sql = "SELECT SUM(spbt.soluong) as soluong FROM spbt WHERE spbt.idpro = $idpro";
@@ -99,9 +129,20 @@
         $sql = "SELECT * FROM spbt WHERE idpro = $idpro AND idmau = $idmau AND idsize = $idsize";
         return pdo_query_one($sql);
     }
-    
+    // end
+
     function update_spbt_soluong($idspbt, $soluong) {
         $sql = "UPDATE spbt SET soluong = $soluong WHERE id = $idspbt";
         pdo_execute($sql);
     }
     
+    function update_view($id) {
+        $sql = "UPDATE sanpham SET luotxem = luotxem + 1 WHERE id=".$id;
+        pdo_execute($sql);
+    }
+
+    function loadall_spdm($iddm) {
+        $sql = "SELECT * FROM sanpham WHERE id=$iddm";
+        $loadspdm = pdo_query($sql);
+        return $loadspdm;
+    }
