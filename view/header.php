@@ -34,8 +34,17 @@
             <div class="icon_bar flex_c">
                 <div class="dropdown">
                     <div class="icon_login">
+                        <?php
+                        if (isset($_SESSION['username']) && $_SESSION['username']) {
+                            // var_dump($_SESSION['nguoidung']);
+                            echo 'Xin chào ' . $_SESSION['username']['username'];
+                        } else {
+                            echo "Chưa đăng nhập";
+                        }
+                        ?>
                         <i class="fa-regular fa-user fa-lg"></i>
                     </div>
+
                     <ul class="dropdown_list">
                         <li class="dropdown_item">
                             <a href="index.php?act=dangky" class="dropdown_link">
@@ -66,7 +75,7 @@
                             </a>
                         </li>
                         <li class="dropdown_item">
-                            <a href="#" class="dropdown_link">
+                            <a href="index.php?act=dangxuat" class="dropdown_link">
                                 <span class="dropdown_text">Đăng xuất</span>
                                 <i class="fa-solid fa-right-from-bracket"></i>
                             </a>
