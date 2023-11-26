@@ -91,7 +91,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $email = $_POST['email'];
                 $checkemail = checkemail($email);
                 if (is_array($checkemail)) {
-                    $thongbao = "mat khau cua ban la" . $checkemail['pass'];
+                    $thongbao = "mat khau la:" . $checkemail['pass'];
                 } else {
                     $thongbao = "email nay khong ton tai";
                 }
