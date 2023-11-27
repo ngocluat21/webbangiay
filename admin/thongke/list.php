@@ -1,4 +1,9 @@
-<div class="row">
+        <style>
+            td {
+                padding: 20px;
+            }
+        </style>
+        <div class="row">
             <div class="row frmtitle">
                 <h1>THỐNG KÊ SẢN PHẨM THEO LOẠI</h1>
             </div>
@@ -21,9 +26,9 @@
                             <td>'.$madm.'</td>
                             <td>'.$tendm.'</td>
                             <td>'.$countsp.'</td>
-                            <td>'.$maxprice.'</td>
-                            <td>'.$minprice.'</td>
-                            <td>'.round($avgprice).'</td>
+                            <td>'.format($maxprice).'</td>
+                            <td>'.format($minprice).'</td>
+                            <td>'.format($avgprice).'</td>
                         </tr>
                                 ';
                             }

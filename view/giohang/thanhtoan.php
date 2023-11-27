@@ -3,7 +3,7 @@
             <div class="h2cter">
                 <h2 class="complete"><?=$thongbao?></h2>
                 <div class="btn_action">
-                    <a href="index.php">
+                    <a href="index.php?act=yourorder">
                         <input type="button" value="Đơn hàng của tôi">
                     </a>
                     <a href="index.php">
@@ -106,3 +106,4 @@
             </div>
         </div>
         <?php } ?>
+        

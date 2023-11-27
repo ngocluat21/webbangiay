@@ -101,6 +101,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+<?php
+$price = 10000000;
+$formattedPrice = number_format($price, 0, '.', '.');
+echo $formattedPrice; // Kết quả: "1.000.000"
+echo '<br>';
+$number = 2332;
+$formatted_number = number_format($number, 2, '.', ',');
+echo $formatted_number;
+echo '<br>';
+$number2 = 3232;
+$formatted_number2 = number_format($number2 / 100, 2, '.', ',');
+echo $formatted_number2;
+
+?>
 
 </body>
 </html>

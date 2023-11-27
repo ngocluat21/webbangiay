@@ -19,6 +19,11 @@
         $listdm = pdo_query($sql);
         return $listdm;
     }
+    function loadall_danhmuc_user() {
+        $sql = "SELECT * FROM danhmuc WHERE status = 1 ORDER BY id DESC";
+        $listdm = pdo_query($sql);
+        return $listdm;
+    }
 
     function loadone_danhmuc($id) {
         $sql = "SELECT * FROM danhmuc WHERE id=".$id;

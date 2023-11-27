@@ -23,7 +23,7 @@ foreach($listsp as $spdg) {
 $dg = load_sp_dg();
 $loadsp = loadall_sanpham_home();
 $listspnb = load_sp_nb();
-$loaddm = loadall_danhmuc();
+$loaddm = loadall_danhmuc_user();
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {
@@ -83,11 +83,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             }
             $uniqueProducts = [];
             foreach ($_SESSION['mycart'] as $cartItem) {
-            //   echo '<pre>';
-            //         // var_dump($cartItem[0]);
-            //         var_dump($cartItem);
-            //         // var_dump($variantKey = $cartItem[5] . '-' . $cartItem[6]);
-            //   echo '</pre>';
                 $productID = $cartItem[0];
                 $quantityToAdd = (int)$cartItem[7];
                 if (!isset($uniqueProducts[$productID])) {
@@ -106,7 +101,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
         case "delcart":
             if (isset($_GET['idcart'])) {
                 $idCart = (int)$_GET['idcart'];
-                array_splice($_SESSION['mycart'], $idCart, 1);
+                var_dump($idCart);
+                // array_splice($_SESSION['mycart'], $idCart, 1);
+                unset($_SESSION['mycart'][$idCart]);
+                // $_SESSION['mycart'] = array_values($_SESSION['mycart']);
             } else {
                 $_SESSION['mycart'] = [];
             }
@@ -157,6 +155,60 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             }
             $thongbao = "Đặt hàng thành công";
             include "view/giohang/thanhtoan.php";
+            break;
+        case "yourorder":
+            if (isset($_SESSION['user'])) {
+                $iduser = $_SESSION['user']['id'];
+            } else {
+                $iduser = 0;
+            }
+            $loadallbill = load_order($iduser);
+            include "view/giohang/donhangcuatoi.php";
+            break;
+        case "order":
+            if (isset($_SESSION['user'])) {
+                $iduser = $_SESSION['user']['id'];
+            } else {
+                $iduser = 0;
+            }
+        
+            $keybill = loadid_bill($iduser);
+            $found = false; // Biến flag để kiểm tra xem có phần tử nào khớp hay không
+        
+            foreach ($keybill as $key) {
+                extract($key);
+        
+                if (isset($_GET['idbill']) && $_GET['idbill'] == $key['id']) {
+                    $loadall_cart = loadall_cart($_GET['idbill'], $key['id']);
+                    $found = true; // Đánh dấu là đã tìm thấy khớp
+                    break; // Dừng vòng lặp vì đã tìm thấy khớp
+                }
+            }
+        
+            if (!$found) {
+                // Nếu không tìm thấy khớp, chuyển hướng đến trang khác
+                header("Location: index.php?act=yourorder&message=Notfound");
+                exit(); // Dừng thực thi của mã sau khi chuyển hướng
+            }
+        
+            include "view/giohang/chitietdonhang.php";
+            break;
+            
+        case "test":
+            if (isset($_SESSION['user'])) {
+                $iduser = $_SESSION['user']['id'];
+            } else {
+                $iduser = 0;
+            }
+            $loadallbill = load_order($iduser);
+            foreach($loadallbill as $bill) {
+                extract($bill);
+
+
+                $loadcart = loadcart($bill['id']);
+            }
+            // var_dump($loadallbill);
+            include "view/giohang/test.php";
             break;
         // tài khoản
         case "dangky":

@@ -17,7 +17,7 @@
     <div class="contaier">
         <div class="header">
             <div class="logo">
-                <a href="index.html"><img src="assets/images/logo.jpg" alt=""></a>
+                <a href="index.php"><img src="assets/images/logo.jpg" alt=""></a>
             </div>
             <div class="menu">
                 <ul>

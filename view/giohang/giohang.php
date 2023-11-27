@@ -1,6 +1,6 @@
         <div class="content" style="min-height: 450px">
             <?php 
-                $ct = 1;
+                $ct = 0;
                 foreach($_SESSION['mycart'] as $cart) {
                 $img_path = "../upload/".$cart[1];
                 echo '
@@ -20,10 +20,11 @@
                             </div>
                         </div>
                         <div class="icon_canxel">
-                            <a href="index.php?act=delcart&idcart="'.($ct++).'><i class="fa-solid fa-xmark"></i></a>
+                            <a href="index.php?act=delcart&idcart='.($ct).'"><i class="fa-solid fa-xmark"></i></a>
                         </div>
                     </div>
                 ';
+                $ct+=1;
             }
             ?>
             <?php if ($_SESSION['mycart'] == []) {

@@ -6,6 +6,7 @@ include "../model/color_size.php";
 include "../model/binhluan.php";
 include "../model/taikhoan.php";
 include "../model/thongke.php";
+include "../model/giohang.php";
 include "header.php";
 
 //controller
@@ -221,6 +222,12 @@ if (isset($_GET['act'])) {
         case 'bieudo':
             $listthongke = loadall_thongke();
             include "thongke/bieudo.php";
+            break;
+
+        // đơn hàng
+        case 'donhang':
+            $listbill = loadall_bill_admin();
+            include "donhang/list.php";
             break;
 
 
