@@ -3,7 +3,7 @@
     
                 <div class="first_para">
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="index.php">
                             <img src="assets/images/logo.jpg" alt="">
                         </a>
                     </div>
@@ -23,7 +23,7 @@
                     <div class="footer_About">
                         <h4 class="footer_About_para"><a class="footer_About_head" href="#">Dịch vụ khách hàng</a></h5>
                         <h5 class="footer_About_para"><a class="footer_About_links" href="">Tài khoản của tôi</a></h5>
-                        <h5 class="footer_About_para"><a class="footer_About_links" href="">Lịch sử đơn hàng</a></h5>
+                        <h5 class="footer_About_para"><a class="footer_About_links" href="index.php?act=yourorder">Lịch sử đơn hàng</a></h5>
                     </div>
     
                     <div class="footer_About">

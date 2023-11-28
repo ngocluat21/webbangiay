@@ -1,4 +1,4 @@
-<div class="row">
+        <div class="row">
             <div class="row frmtitle">
                 <h1>DANH SÁCH LOẠI HÀNG HÓA</h1>
             </div>
@@ -17,8 +17,8 @@
                             extract($danhmuc);
                             $suadm = "index.php?act=suadm&id=$id";
                             $andm = "index.php?act=listdm&id=$id";
+                        ?>
 
-                            ?>
                             <tr>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td><?= $id ?></td>
@@ -32,6 +32,7 @@
                                     </form>
                                 </td>
                             </tr>
+
                         <?php endforeach; ?>
                         
                     </table>

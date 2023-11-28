@@ -6,13 +6,14 @@ include "../model/color_size.php";
 include "../model/binhluan.php";
 include "../model/taikhoan.php";
 include "../model/thongke.php";
+include "../model/giohang.php";
 include "header.php";
 
 //controller
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
-            //danh mục
+        //danh mục
         case 'adddm':
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
                 $tendm = $_POST['tendm'];
@@ -51,8 +52,13 @@ if (isset($_GET['act'])) {
 
 
 
-            //tài khoản
+<<<<<<< HEAD
+        //tài khoản
         case 'addtk':   
+=======
+            //tài khoản
+        case 'addtk':
+>>>>>>> 8814f565cb2fee570b40dd3c5a0b5b610fb1119e
             include "taikhoan/add.php";
             break;
         case 'dskh':
@@ -60,12 +66,16 @@ if (isset($_GET['act'])) {
             include "taikhoan/list.php";
             break;
         case 'xoatk':
+            $id = $_GET['id'];
+            delete_taikhoan($id);
+            $sql = "delete from taikhoan where id=" . $id;
+            $listtaikhoan = loadall_taikhoan();
             include "taikhoan/list.php";
             break;
         case 'updatetk':
             include "taikhoan/list.php.php";
             break;
-            //sản phẩm
+        //sản phẩm
         case 'addsp':
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
                 $iddm = $_POST['iddm'];
@@ -159,11 +169,8 @@ if (isset($_GET['act'])) {
             $listdm = loadall_danhmuc();
             include "sanpham/list.php";
             break;
-        case 'xoasp':
-            include "sanpham/list.php";
-            break;
 
-            // Sản phẩm biến thể
+        // Sản phẩm biến thể
         case 'suasp':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $pro = loadone_sanpham($_GET['id']);
@@ -204,7 +211,7 @@ if (isset($_GET['act'])) {
             include "sanpham/list.php";
             break;
 
-            //binhluan
+        //binhluan
         case 'dsbl':
             if (isset($_POST['block'], $_GET['id'])) {
                 update_status_bl0($_GET['id']);
@@ -224,6 +231,12 @@ if (isset($_GET['act'])) {
         case 'bieudo':
             $listthongke = loadall_thongke();
             include "thongke/bieudo.php";
+            break;
+
+        // đơn hàng
+        case 'donhang':
+            $listbill = loadall_bill_admin();
+            include "donhang/list.php";
             break;
 
 

@@ -4,7 +4,7 @@
     font-size: 0.7vw;
 }
 .boxcenter{
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
 }
 .row{
@@ -160,7 +160,7 @@ input[type="submit" i],[type="reset" i],[type="button" i] {
 }
 .grid3 {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 200px;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
 }
 .flxend {
@@ -244,3 +244,21 @@ input[type="file"]:hover {
     margin-top: 10px;
 }
 
+/* css tìm kiểm */
+.flex_sea {
+    width: 100%;
+    height: 30px;
+    display: grid;
+    grid-template-columns: 300px 300px 80px;
+    gap: 10px;
+}
+.flex_sea input[type="text"], 
+.flex_sea select {
+    height: 30px;
+}
+.flex_sea input[type="submit"] {
+    text-align: center;
+    padding: 8px 15px;
+    height: 31px;
+    margin-top: 5px;
+}

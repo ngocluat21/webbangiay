@@ -9,7 +9,6 @@
     } else {
         $hinh = "No photo";
     }
-    // $up = "index.php?act=spbt&id=".$pro['id'];
 ?>
 <div class="raw">
     <div class="raw">
@@ -31,10 +30,8 @@
                     ?>
                 </select>
             </div>
-
             
             <div class="raw flex">
-                
                 <div class="mb10">
                     Tên sản phẩm <br>
                     <input type="text" name="namepro" value="<?php echo $namepro;?>">
@@ -66,62 +63,57 @@
             <div class="raw title">
                 <h1>THÊM BIẾN THỂ</h1>
             </div>
-            <!-- <form action="" method="post"> -->
-                
-                
-                <div id="variantsContainer" class="frmcontent">
-                    <div class="variant grid3 raw">
-                        <div class="mb10">
-                            <label for="size">Size:</label>
-                            <select name="idsize">
-                                <option value="Choose">--- Chọn size ---</option>
-                                <?php
-                                    foreach ($list_s as $size) {
-                                        extract($size);
-                                        echo '<option value="'.$id.'">'.$size.'</option>';
-                                    }
-                                ?>
-                            </select>
-                        </div>
-    
-                        <div class="mb10">
-                            <label for="color">Màu:</label>
-                            <select name="idmau">
-                                <option value="Choose">--- Chọn màu ---</option>
-                                <?php
-                                    foreach ($list_m as $mau) {
-                                        extract($mau);
-                                        echo '<option value="'.$id.'">'.$mau.'</option>';
-                                    }
-                                ?>
-                            </select>
-                        </div>
-    
-                        <div class="mb10">
-                            <label for="">Số Lượng:</label>
-                            <input type="text" name="soluong" >
-                        </div>
-                        <div class="mb10 flxend">
-                            <input type="button" onclick="removeVariant(this)" value="Xóa">
-                            <input type="button" onclick="addVariant()" value="Thêm Biến Thể">
-                        </div>
-                  
-                        </div>
+        
+            <div id="variantsContainer" class="frmcontent">
+                <div class="variant grid3 raw">
+                    <div class="mb10">
+                        <label for="size">Size:</label>
+                        <select name="idsize">
+                            <option value="Choose">--- Chọn size ---</option>
+                            <?php
+                                foreach ($list_s as $size) {
+                                    extract($size);
+                                    echo '<option value="'.$id.'">'.$size.'</option>';
+                                }
+                            ?>
+                        </select>
                     </div>
-                    <div class="raw mb10">
-                    <input type="hidden" name="id" value="<?php echo $pro['id'];?>">
-                    <input type="submit" name="capnhat" value="Cập nhập">
-                    <input type="reset" value="Nhập lại">
-                    <input type="submit" name="themmoi" value="Thêm">
-                    <a href="index.php?act=listsp">
-                        <input type="button" value="Danh sách">
-                    </a>
-                </div>
 
+                    <div class="mb10">
+                        <label for="color">Màu:</label>
+                        <select name="idmau">
+                            <option value="Choose">--- Chọn màu ---</option>
+                            <?php
+                                foreach ($list_m as $mau) {
+                                    extract($mau);
+                                    echo '<option value="'.$id.'">'.$mau.'</option>';
+                                }
+                            ?>
+                        </select>
+                    </div>
 
+                    <div class="mb10">
+                        <label for="">Số Lượng:</label>
+                        <input type="text" name="soluong" >
+                    </div>
+                    
+                    <!-- button add and delete variant -->
+                    <!-- <div class="mb10 flxend">
+                        <input type="button" onclick="removeVariant(this)" value="Xóa">
+                        <input type="button" onclick="addVariant()" value="Thêm Biến Thể">
+                    </div> -->
                 
-
-            <!-- </form> -->
+                </div>
+            </div>
+            <div class="raw mb10">
+                <input type="hidden" name="id" value="<?php echo $pro['id'];?>">
+                <input type="submit" name="capnhat" value="Cập nhập">
+                <input type="reset" value="Nhập lại">
+                <input type="submit" name="themmoi" value="Thêm biến thể">
+                <a href="index.php?act=listsp">
+                    <input type="button" value="Danh sách">
+                </a>
+            </div>
             
             <?php
                 if (isset($thongbao) && ($thongbao!="")) {

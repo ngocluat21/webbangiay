@@ -1,16 +1,16 @@
 <?php
-function insert_binhluan($noidung,$iduser,$idspbt,$ngaybinhluan){
-    $sql="insert into binhluan(noidung,iduser,idpro,ngaybinhluan) values('$noidung','$iduser','$idspbt','$ngaybinhluan')";
+function insert_binhluan($noidung,$iduser,$idpro,$ngaybinhluan){
+    $sql="insert into binhluan(noidung,iduser,idpro,ngaybinhluan) values('$noidung','$iduser','$idpro','$ngaybinhluan')";
     pdo_execute($sql);
 }
-function loadall_binhluan($idspbt){
+function loadall_binhluan($idpro){
     $sql = "SELECT binhluan.*, taikhoan.username
             FROM binhluan
             LEFT JOIN taikhoan ON binhluan.iduser = taikhoan.id
             WHERE 1";
     
-    if ($idspbt > 0) {
-        $sql .= " AND idspbt = '" . $idspbt . "'";
+    if ($idpro > 0) {
+        $sql .= " AND idpro = '" . $idpro . "'";
     }
 
     $sql .= " ORDER BY binhluan.id DESC";

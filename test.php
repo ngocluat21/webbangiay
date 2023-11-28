@@ -77,5 +77,44 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     </script>
+    <form method="post" action="test.php">
+        <div class="pay_method">
+            <input type="radio" name="bill_pttt" value="Trả tiền khi nhận hàng">
+            <label>Trả tiền khi nhận hàng</label>
+    
+            <input type="radio" name="bill_pttt" value="Chuyển khoản ngân hàng">
+            <label>Chuyển khoản ngân hàng</label>
+    
+            <input type="radio" name="bill_pttt" value="Thanh toán online">
+            <label>Thanh toán online</label>
+    
+            <input type="submit" name="submit" value="Xác nhận">
+        </div>
+    </form>
+    <?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['bill_pttt'])) {
+        $selectedPaymentMethod = $_POST['bill_pttt'];
+
+        // Xử lý dữ liệu ở đây, ví dụ:
+        echo 'Phương thức thanh toán đã chọn: ' . $selectedPaymentMethod;
+    }
+}
+?>
+<?php
+$price = 10000000;
+$formattedPrice = number_format($price, 0, '.', '.');
+echo $formattedPrice; // Kết quả: "1.000.000"
+echo '<br>';
+$number = 2332;
+$formatted_number = number_format($number, 2, '.', ',');
+echo $formatted_number;
+echo '<br>';
+$number2 = 3232;
+$formatted_number2 = number_format($number2 / 100, 2, '.', ',');
+echo $formatted_number2;
+
+?>
+
 </body>
 </html>
