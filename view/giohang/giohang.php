@@ -4,11 +4,6 @@
                 $ct = 0;
                 foreach($_SESSION['mycart'] as $cart) {
                 $img_path = "../upload/".$cart[1];
-=======
-        <div class="content">
-            <?php foreach ($_SESSION['mycart'] as $cart) {
-                $img_path = "upload/" . $cart[1];
->>>>>>> 8814f565cb2fee570b40dd3c5a0b5b610fb1119e
                 echo '
                     <div class="cart">
                         <img src="' . $img_path . '" alt="">
@@ -74,5 +69,4 @@
                     <input type="button" value="Mua ngay">
                 </a>
             </div>
->>>>>>> 8814f565cb2fee570b40dd3c5a0b5b610fb1119e
         </div>
