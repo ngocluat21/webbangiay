@@ -2,6 +2,19 @@
             <div class="row frmtitle">
                 <h1>DANH SÁCH ĐƠN HÀNG</h1>
             </div>
+            <form action="index.php?act=listsp" method="post" class="flex_sea">
+                <input type="text" name="kyw">
+                <select name="iddm">
+                    <option value="0" select>Tất cả</option>
+                    <?php
+                    foreach ($listdm as $danhmuc) {
+                        extract($danhmuc);
+                        echo '<option value="' . $id . '">' . $namedm . '</option>';
+                    }
+                    ?>
+                </select>
+                <input type="submit" name="listok" value="FIND">
+            </form>
             <div class="row frmcontent">
                 <div class="row mb10 frmdsloai">
                     <table>

@@ -105,6 +105,20 @@
                     </div>
                 </div>
             </div>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+            <script>
+                $(document).ready(function() {
+
+                    $("#binhluan").load("view/binhluan/binhluan.php", {
+                        idpro: <?=$sanpham['id']?>
+                    });
+
+                });
+            </script>
+            <div class="raw" id="binhluan">
+
+            </div>
             <div class="h1ct float">
                 <h1>Sản phẩm liên quan</h1>
             </div>

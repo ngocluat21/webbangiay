@@ -25,7 +25,7 @@
                             <td>' . $id . '</td>
                             <td>' . $noidung . '</td>
                             <td>' . $username . '</td>
-                            <td>' . $idspbt . '</td>
+                            <td>' . $idpro . '</td>
                             <td>' . $ngaybinhluan . '</td>
                             <td>' . ($status_bl ? 'Active' : 'Block') . '</td>
 

@@ -194,22 +194,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "view/giohang/chitietdonhang.php";
             break;
             
-        case "test":
-            if (isset($_SESSION['user'])) {
-                $iduser = $_SESSION['user']['id'];
-            } else {
-                $iduser = 0;
-            }
-            $loadallbill = load_order($iduser);
-            foreach($loadallbill as $bill) {
-                extract($bill);
-
-
-                $loadcart = loadcart($bill['id']);
-            }
-            // var_dump($loadallbill);
-            include "view/giohang/test.php";
-            break;
         // tài khoản
         case "dangky":
             if (isset($_POST['dangky']) && ($_POST['dangky'])) {

@@ -1,8 +1,8 @@
 <div class="row">
-    <div class="row frmtitle mb">
+    <div class="row frmtitle mb10">
         <h1>DANH SÁCH LOẠI HÀNG HÓA</h1>
     </div>
-    <form action="index.php?act=listsp" method="post">
+    <form action="index.php?act=listsp" method="post" class="flex_sea">
         <input type="text" name="kyw">
         <select name="iddm">
             <option value="0" select>Tất cả</option>
