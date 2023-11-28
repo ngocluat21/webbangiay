@@ -1,16 +1,22 @@
+<<<<<<< HEAD
         <div class="content" style="min-height: 450px">
             <?php 
                 $ct = 0;
                 foreach($_SESSION['mycart'] as $cart) {
                 $img_path = "../upload/".$cart[1];
+=======
+        <div class="content">
+            <?php foreach ($_SESSION['mycart'] as $cart) {
+                $img_path = "upload/" . $cart[1];
+>>>>>>> 8814f565cb2fee570b40dd3c5a0b5b610fb1119e
                 echo '
                     <div class="cart">
-                        <img src="'.$img_path.'" alt="">
+                        <img src="' . $img_path . '" alt="">
                         <div class="cartinfo">
-                            <h1>'.$cart[2].'</h1>
-                            <div class="price">'.$cart[3].' đ</div>
+                            <h1>' . $cart[2] . '</h1>
+                            <div class="price">' . $cart[3] . ' đ</div>
                             <div class="option">
-                                <span>MÀU: '.$cart[5].'</span><span>SIZE: '.$cart[6].'</span>
+                                <span>MÀU: ' . $cart[5] . '</span><span>SIZE: ' . $cart[6] . '</span>
                             </div>
                             <strong style="display: none;" id="displayQuantity"></strong>
                             <div class="remote_ct quantity-container">
@@ -54,4 +60,19 @@
                 ';
             }
             ?>
+<<<<<<< HEAD
+=======
+
+            <div class="btn_action">
+                <a href="#">
+                    <input type="button" value="Xóa giỏ hàng">
+                </a>
+                <a href="index.html">
+                    <input type="button" value="Tiếp tục mua hàng">
+                </a>
+                <a href="thanhtoan.html">
+                    <input type="button" value="Mua ngay">
+                </a>
+            </div>
+>>>>>>> 8814f565cb2fee570b40dd3c5a0b5b610fb1119e
         </div>

@@ -10,7 +10,7 @@ include "model/taikhoan.php";
 include "model/giohang.php";
 include "global.php";
 
-if(!isset($_SESSION['mycart'])) {
+if (!isset($_SESSION['mycart'])) {
     $_SESSION['mycart'] = [];
 }
 // unset($_SESSION['mycart']);
@@ -223,12 +223,12 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
             include "view/taikhoan/dangnhap.php";
             break;
-        case "laymk":
+        case "quenmk":
             if (isset($_POST['gui']) && ($_POST['gui'])) {
                 $email = $_POST['email'];
                 $checkemail = checkemail($email);
                 if (is_array($checkemail)) {
-                    $thongbao = "mat khau cua ban la" . $checkemail['pass'];
+                    $thongbao = "mat khau la:" . $checkemail['pass'];
                 } else {
                     $thongbao = "email nay khong ton tai";
                 }
@@ -249,6 +249,12 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 header('Location: index.php?act=edit_tk');
             }
             include "view/taikhoan/edit_tk.php";
+            break;
+        case "dangxuat";
+            if (isset($_SESSION['username'])) {
+                unset($_SESSION['username']); // xóa session login
+            }
+            header('Location: index.php?act=dangnhap');
             break;
         default:
             include "view/trangchu.php";
