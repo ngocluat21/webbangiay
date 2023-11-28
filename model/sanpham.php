@@ -31,6 +31,17 @@
         $spcl = pdo_query($sql);
         return $spcl;
     }
+    function load_ten_dm($iddm){
+        if($iddm>0){
+           $sql="select * from danhmuc where id=".$iddm;
+        $dm=pdo_query_one($sql);
+        //extract ($dm);
+        return $name; 
+        }else{
+            return "";
+        }
+        
+    }
 
     function update_status_sp0($id) {
         $sql = "UPDATE sanpham SET status=0 WHERE id=".$id;
@@ -94,16 +105,6 @@
         $list_spbt = pdo_query($sql);
         return $list_spbt;
     }
-    // function loadone_bt($idbt) {
-    //     $sql = "SELECT mausp.mau as mau, size.size as size 
-    //             FROM spbt 
-    //             JOIN mausp ON spbt.idmau = mausp.id
-    //             JOIN size ON spbt.idsize = size.id
-    //             WHERE spbt.id=".$idbt;
-    //     $bt = pdo_query_one($sql);
-    //     return $bt;
-    // }
-
     function load_soluongbt($idpro) {
         $sql = "SELECT SUM(spbt.soluong) as soluong FROM spbt WHERE spbt.idpro = $idpro";
         $slbt = pdo_query($sql);

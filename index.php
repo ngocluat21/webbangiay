@@ -42,13 +42,36 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
         
         // sản phẩm
         case "sanpham":
-            $listsp = loadall_sanpham();
-            foreach($listsp as $spdm) {
-                extract($spdm);
-                $loadspdm = loadall_spdm($iddm);
+
+
+
+            //---------------------------------------------------------
+            if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
+                $kyw = $_POST['kyw'];
+            } else {
+                $kyw = "";
+            }
+            if (isset($_GET['iddm']) && ($_GET['iddm'] > 0)) {
+                $iddm = $_GET['iddm'];
+            } else {
+                $iddm = 0;
+            }
+            $listsp = loadall_sanpham("$kyw", $iddm);
+            foreach($listsp as $tendm) {
+                extract($tendm);
+                $tendm = load_ten_dm($iddm);
             }
             include "view/sanpham.php";
             break;
+//test demo----------------------------------------------------------------
+
+            
+           
+            //----------------------------------------------------------
+
+
+
+
         case "sanphamct":
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 if (isset($_SESSION['user'])) {
@@ -251,10 +274,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "view/taikhoan/edit_tk.php";
             break;
         case "dangxuat";
-            if (isset($_SESSION['username'])) {
-                unset($_SESSION['username']); // xóa session login
+            if (isset($_SESSION['user'])) {
+                unset($_SESSION['user']); // xóa session login
             }
-            header('Location: index.php?act=dangnhap');
+            header('Location: index.php');
             break;
         default:
             include "view/trangchu.php";

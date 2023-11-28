@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3308:3308
--- Thời gian đã tạo: Th10 21, 2023 lúc 01:44 AM
+-- Thời gian đã tạo: Th10 28, 2023 lúc 02:38 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.1.17
 
@@ -40,6 +40,24 @@ CREATE TABLE `bill` (
   `bill_status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0.Đơn hàng mới\r\n1.Đang xử lý\r\n2.Đang giao hàng\r\n3.Đã giao '
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `bill`
+--
+
+INSERT INTO `bill` (`id`, `iduser`, `bill_name`, `bill_address`, `bill_tel`, `bill_email`, `bill_pttt`, `ngaydathang`, `total`, `bill_status`) VALUES
+(44, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '09:28:36pm 24/11/2023', 9000000, 0),
+(45, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '09:29:26pm 24/11/2023', 9000000, 0),
+(46, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '06:37:36am 25/11/2023', 66800000, 0),
+(48, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '01:24:28am 26/11/2023', 1060000, 0),
+(49, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '01:46:40am 26/11/2023', 35000000, 0),
+(50, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '02:11:44am 26/11/2023', 50000000, 0),
+(51, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '06:38:54pm 26/11/2023', 25000000, 0),
+(52, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '09:00:52pm 26/11/2023', 20000000, 0),
+(53, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '09:48:20pm 26/11/2023', 23600000, 0),
+(54, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '01:31:15am 28/11/2023', 2120000, 0),
+(55, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '02:04:55am 28/11/2023', 2700000, 0),
+(56, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '02:28:48am 28/11/2023', 1590000, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -51,9 +69,21 @@ CREATE TABLE `binhluan` (
   `noidung` text NOT NULL,
   `ngaybinhluan` varchar(30) NOT NULL,
   `iduser` int(10) NOT NULL,
-  `idspbt` int(11) NOT NULL,
+  `idpro` int(11) NOT NULL,
   `status_bl` bit(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `binhluan`
+--
+
+INSERT INTO `binhluan` (`id`, `noidung`, `ngaybinhluan`, `iduser`, `idpro`, `status_bl`) VALUES
+(12, 'Sản phẩm đẹp', '22/11/2023', 4, 37, b'01'),
+(14, 'Sản phẩm chất lượng cao', '06:21:51pm 27/11/2023', 4, 47, b'01'),
+(15, 'Sản phẩm phong cách', '06:23:46pm 27/11/2023', 4, 46, b'01'),
+(16, 'Sản phẩm thời thượng', '06:33:26pm 27/11/2023', 4, 46, b'01'),
+(17, 'Sản phẩm tốt', '06:37:38pm 27/11/2023', 4, 39, b'01'),
+(18, 'Sản phẩm tốt', '01:24:25am 28/11/2023', 4, 46, b'01');
 
 -- --------------------------------------------------------
 
@@ -68,10 +98,32 @@ CREATE TABLE `cart` (
   `img` varchar(255) DEFAULT NULL,
   `namepro` varchar(255) DEFAULT NULL,
   `price` int(10) NOT NULL DEFAULT 0,
+  `mau` varchar(255) NOT NULL,
+  `size` int(11) NOT NULL,
   `soluong` int(3) NOT NULL,
   `thanhtien` int(11) NOT NULL,
   `idbill` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `cart`
+--
+
+INSERT INTO `cart` (`id`, `iduser`, `idspbt`, `img`, `namepro`, `price`, `mau`, `size`, `soluong`, `thanhtien`, `idbill`) VALUES
+(105, 4, 19, 'giay-mlb-liner-mid-monogram-ny.png', 'Giày MLB Liner Mid Monogram NY', 1800000, 'black', 38, 5, 9000000, 45),
+(106, 4, 15, 'adidas-superstar-adifom-trang.png', 'Giày Adidas Superstar Adifom Trắng Siêu Cấp', 900000, 'red', 38, 2, 66800000, 46),
+(107, 4, 16, '126.png', 'Giày Nike Air Jordan 1 Retro High Dior Like Auth 99%', 5000000, 'Green', 38, 13, 66800000, 46),
+(108, 4, 25, 'giay-converse-chuck-taylor-all-star-1970s-white-high-trang-co-cao-1.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 530000, 'yellow', 38, 2, 1060000, 48),
+(109, 4, 16, '126.png', 'Giày Nike Air Jordan 1 Retro High Dior Like Auth 99%', 5000000, 'Green', 38, 7, 35000000, 49),
+(110, 4, 16, '126.png', 'Giày Nike Air Jordan 1 Retro High Dior Like Auth 99%', 5000000, 'Green', 38, 10, 50000000, 50),
+(111, 4, 16, '126.png', 'Giày Nike Air Jordan 1 Retro High Dior Like Auth 99%', 5000000, 'Green', 38, 5, 25000000, 51),
+(112, 4, 16, '126.png', 'Giày Nike Air Jordan 1 Retro High Dior Like Auth 99%', 5000000, 'Green', 38, 4, 20000000, 52),
+(113, 4, 25, 'giay-converse-chuck-taylor-all-star-1970s-white-high-trang-co-cao-1.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 530000, 'yellow', 38, 5, 23600000, 53),
+(114, 4, 23, '91.png', 'Giày MLB Bigball Chunky Boston Red Sox Màu Trắng Rep 1:1', 950000, 'red', 39, 1, 23600000, 53),
+(115, 4, 16, '126.png', 'Giày Nike Air Jordan 1 Retro High Dior Like Auth 99%', 5000000, 'Green', 38, 4, 23600000, 53),
+(116, 4, 25, 'giay-converse-chuck-taylor-all-star-1970s-white-high-trang-co-cao-1.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 530000, 'yellow', 38, 4, 2120000, 54),
+(117, 4, 26, 'giay-louis-vuitton-lv-trainer-monogram-denim-white-blue.png', 'Giày Louis Vuitton LV Trainer Monogram Denim White Blue', 900000, 'Green', 39, 3, 2700000, 55),
+(118, 4, 25, 'giay-converse-chuck-taylor-all-star-1970s-white-high-trang-co-cao-1.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 530000, 'yellow', 38, 3, 1590000, 56);
 
 -- --------------------------------------------------------
 
@@ -96,11 +148,7 @@ INSERT INTO `danhmuc` (`id`, `namedm`, `status`) VALUES
 (21, 'Giày Adidas', b'1'),
 (22, 'Giày Vans', b'1'),
 (23, 'Giày GUCCI', b'1'),
-(24, 'Giày LV', b'1'),
-(25, 'Giày Adidas Superstar Adifom Đen Siêu Cấp', b'1'),
-(26, 'Giày Adidas Superstar Adifom Đen Siêu Cấp', b'1'),
-(27, 'Giày Adidas Superstar Adifom Đen Siêu Cấp', b'1'),
-(28, 'Giày Adidas Superstar Adifom Đen Siêu Cấp', b'1');
+(24, 'Giày LV', b'1');
 
 -- --------------------------------------------------------
 
@@ -118,7 +166,7 @@ CREATE TABLE `mausp` (
 --
 
 INSERT INTO `mausp` (`id`, `mau`) VALUES
-(1, 'green'),
+(1, 'Green'),
 (2, 'yellow'),
 (3, 'black'),
 (4, 'red');
@@ -133,7 +181,7 @@ CREATE TABLE `sanpham` (
   `id` int(11) NOT NULL,
   `namepro` varchar(255) NOT NULL,
   `price` int(11) NOT NULL DEFAULT 0,
-  `discount` int(11) NOT NULL,
+  `discount` int(11) NOT NULL DEFAULT 0,
   `img` varchar(255) NOT NULL,
   `mota` text DEFAULT NULL,
   `luotxem` int(11) NOT NULL DEFAULT 0,
@@ -146,10 +194,16 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`id`, `namepro`, `price`, `discount`, `img`, `mota`, `luotxem`, `iddm`, `status`) VALUES
-(37, 'Giày Adidas Superstar Adifom Đen Siêu Cấp', 900000, 690000, 'adidas-superstar-adifom-den.png', 'Giày Adidas Superstar Adifom Đen Siêu Cấp với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 0, 21, b'01'),
-(38, 'Giày Adidas Superstar Adifom Trắng Siêu Cấp', 900000, 400000, 'adidas-superstar-adifom-trang.png', 'Giày Adidas Superstar Adifom Trắng Siêu Cấp với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 0, 21, b'01'),
-(39, 'Giày Nike Air Jordan 1 Retro High Dior Like Auth 99%', 5000000, 2500000, '126.png', 'Giày Nike Air Jordan 1 Retro High Dior Like Auth 99% với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 0, 18, b'01'),
-(40, 'Giày MLB Liner Mid Monogram NY', 1800000, 860000, 'giay-mlb-liner-mid-monogram-ny.png', 'Giày MLB Liner Mid Monogram NY với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 0, 20, b'01');
+(37, 'Giày Adidas Superstar Adifom Đen Siêu Cấp', 850000, 900000, 'adidas-superstar-adifom-den.png', 'Giày Adidas Superstar Adifom Đen Siêu Cấp với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 0, 21, b'01'),
+(38, 'Giày Adidas Superstar Adifom Trắng Siêu Cấp', 880000, 900000, 'adidas-superstar-adifom-trang.png', 'Giày Adidas Superstar Adifom Trắng Siêu Cấp với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 4, 21, b'01'),
+(39, 'Giày Nike Air Jordan 1 Retro High Dior Like Auth 99%', 2500000, 5000000, '126.png', 'Giày Nike Air Jordan 1 Retro High Dior Like Auth 99% với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 14, 18, b'01'),
+(40, 'Giày MLB Liner Mid Monogram NY', 860000, 1800000, 'giay-mlb-liner-mid-monogram-ny.png', 'Giày MLB Liner Mid Monogram NY với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 26, 20, b'01'),
+(42, 'Giày Louis Vuitton LV Trainer Monogram Denim White Blue', 900000, 2000000, 'giay-louis-vuitton-lv-trainer-monogram-denim-white-blue.png', 'Giày Louis Vuitton LV Trainer Monogram Denim White Blue với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 2, 24, b'01'),
+(43, ' Giày LV Trainer Monogram Denim Đen Trắng Siêu Cấp Like Auth', 900000, 2000000, '1-1.png', 'Giày LV Trainer Monogram Denim Đen Trắng với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 0, 24, b'01'),
+(44, 'Giày Louis Vuitton LV Trainer Sneaker 1A9JHD Màu Trắng Vàng', 900000, 2000000, 'louis-vuitton-lv-trainer-sneaker-1a9jhd-mau-trang-vang.png', 'Giày Louis Vuitton LV Trainer Sneaker 1A9JHD Màu Trắng Vàng với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 2, 24, b'01'),
+(45, 'Giày MLB Bigball Chunky Boston Red Sox Màu Trắng Rep 1:1', 950000, 0, '91.png', 'Giày MLB Bigball Chunky Boston Red Sox Màu Trắng Rep 1:1 với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 10, 20, b'01'),
+(46, 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 530000, 0, 'giay-converse-chuck-taylor-all-star-1970s-white-high-trang-co-cao-1.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ cao với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 19, 19, b'01'),
+(47, 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 820000, 1600000, 'giay-af1-x-louis-vuitton-white-brown.png', 'Giày AF1 x Louis Vuitton White Brown là phiên bản độc lạ hiện nay ở Việt Nam ít ai có. Shop nhập về được số lượng ít, giá cực tốt cho mọi người trải nghiệm.', 13, 23, b'01');
 
 -- --------------------------------------------------------
 
@@ -203,8 +257,19 @@ INSERT INTO `spbt` (`id`, `idpro`, `idmau`, `idsize`, `soluong`, `status`) VALUE
 (12, 37, 4, 2, 1, b'01'),
 (13, 37, 1, 2, 2, b'01'),
 (14, 37, 2, 1, 2, b'01'),
-(15, 38, 4, 1, 2, b'01'),
-(16, 39, 1, 1, 12, b'01');
+(15, 38, 4, 1, 22, b'01'),
+(16, 39, 1, 1, 12, b'01'),
+(17, 37, 4, 1, 43, b'01'),
+(18, 38, 3, 1, 30, b'01'),
+(19, 40, 3, 1, 10, b'01'),
+(20, 38, 1, 2, 1, b'01'),
+(21, 40, 2, 3, 20, b'01'),
+(22, 44, 2, 2, 5, b'01'),
+(23, 45, 4, 2, 20, b'01'),
+(24, 43, 3, 2, 10, b'01'),
+(25, 46, 2, 1, 3, b'01'),
+(26, 42, 1, 2, 10, b'01'),
+(27, 47, 3, 2, 10, b'01');
 
 -- --------------------------------------------------------
 
@@ -217,10 +282,20 @@ CREATE TABLE `taikhoan` (
   `username` varchar(50) NOT NULL,
   `pass` varchar(50) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `tel` varchar(20) DEFAULT NULL,
+  `address` varchar(255) NOT NULL,
+  `tel` varchar(20) NOT NULL,
   `role` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `taikhoan`
+--
+
+INSERT INTO `taikhoan` (`id`, `username`, `pass`, `email`, `address`, `tel`, `role`) VALUES
+(4, 'Ngô Ngọc Luật', '123456', 'ngocluatngo5@gmai.com', 'Hà Nội, Việt Nam', '0768955786', 0),
+(5, 'Nguyễn Thành Nam', '123456', 'namnt@gmai.com', 'Hà Giang, Việt Nam', '0938429832', 0),
+(6, 'Nguyễn Thành An', '123456', 'annt@gmai.com', 'Vincent, Italia', '0932452944', 0),
+(7, 'Nguyễn Thành Đông', '123456', 'dong07@gmai.com', 'Đà Nẵng, Việt Nam', '0768955786', 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -239,7 +314,7 @@ ALTER TABLE `bill`
 ALTER TABLE `binhluan`
   ADD PRIMARY KEY (`id`),
   ADD KEY `lk_binhluan_taikhoan` (`iduser`),
-  ADD KEY `lk_binhluan_spbt` (`idspbt`);
+  ADD KEY `lk_binhluan_sanpham` (`idpro`);
 
 --
 -- Chỉ mục cho bảng `cart`
@@ -298,19 +373,19 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT cho bảng `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT cho bảng `binhluan`
 --
 ALTER TABLE `binhluan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 
 --
 -- AUTO_INCREMENT cho bảng `danhmuc`
@@ -328,7 +403,7 @@ ALTER TABLE `mausp`
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT cho bảng `size`
@@ -340,13 +415,13 @@ ALTER TABLE `size`
 -- AUTO_INCREMENT cho bảng `spbt`
 --
 ALTER TABLE `spbt`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -362,7 +437,7 @@ ALTER TABLE `bill`
 -- Các ràng buộc cho bảng `binhluan`
 --
 ALTER TABLE `binhluan`
-  ADD CONSTRAINT `lk_binhluan_spbt` FOREIGN KEY (`idspbt`) REFERENCES `spbt` (`id`),
+  ADD CONSTRAINT `lk_binhluan_sanpham` FOREIGN KEY (`idpro`) REFERENCES `sanpham` (`id`),
   ADD CONSTRAINT `lk_binhluan_taikhoan` FOREIGN KEY (`iduser`) REFERENCES `taikhoan` (`id`);
 
 --

@@ -1,9 +1,9 @@
-<<<<<<< HEAD
+
         <div class="content" style="min-height: 450px">
             <?php 
                 $ct = 0;
                 foreach($_SESSION['mycart'] as $cart) {
-                $img_path = "../upload/".$cart[1];
+                $img_path = "upload/".$cart[1];
                 echo '
                     <div class="cart">
                         <img src="' . $img_path . '" alt="">
@@ -55,8 +55,6 @@
                 ';
             }
             ?>
-<<<<<<< HEAD
-=======
 
             <div class="btn_action">
                 <a href="#">
