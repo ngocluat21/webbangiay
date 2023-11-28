@@ -1,14 +1,9 @@
-<<<<<<< HEAD
+
         <div class="content" style="min-height: 450px">
             <?php 
                 $ct = 0;
                 foreach($_SESSION['mycart'] as $cart) {
                 $img_path = "../upload/".$cart[1];
-=======
-        <div class="content">
-            <?php foreach ($_SESSION['mycart'] as $cart) {
-                $img_path = "upload/" . $cart[1];
->>>>>>> 8814f565cb2fee570b40dd3c5a0b5b610fb1119e
                 echo '
                     <div class="cart">
                         <img src="' . $img_path . '" alt="">
@@ -60,19 +55,4 @@
                 ';
             }
             ?>
-<<<<<<< HEAD
-=======
-
-            <div class="btn_action">
-                <a href="#">
-                    <input type="button" value="Xóa giỏ hàng">
-                </a>
-                <a href="index.html">
-                    <input type="button" value="Tiếp tục mua hàng">
-                </a>
-                <a href="thanhtoan.html">
-                    <input type="button" value="Mua ngay">
-                </a>
-            </div>
->>>>>>> 8814f565cb2fee570b40dd3c5a0b5b610fb1119e
         </div>

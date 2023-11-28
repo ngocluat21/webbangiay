@@ -251,10 +251,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "view/taikhoan/edit_tk.php";
             break;
         case "dangxuat";
-            if (isset($_SESSION['username'])) {
-                unset($_SESSION['username']); // xóa session login
+            if (isset($_SESSION['user'])) {
+                unset($_SESSION['user']); // xóa session login
             }
-            header('Location: index.php?act=dangnhap');
+            header('Location: index.php');
             break;
         default:
             include "view/trangchu.php";
