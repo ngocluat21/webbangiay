@@ -91,9 +91,9 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $email = $_POST['email'];
                 $checkemail = checkemail($email);
                 if (is_array($checkemail)) {
-                    $thongbao = "mat khau la:" . $checkemail['pass'];
+                    $thongbao = "Mật khẩu la:" . $checkemail['pass'];
                 } else {
-                    $thongbao = "email nay khong ton tai";
+                    $thongbao = "email này không tồn tại";
                 }
             }
             include "view/taikhoan/quenmk.php";
