@@ -8,15 +8,16 @@
                         <h2 class="auth-form-title">
                             FORGOT PASSWORD
                         </h2>
-                        
                         <form class="index.php?act=quenmk">
+
+                        <form class="login-form">
                             <input type="email" class="auth-form-input" placeholder="Email">
                             <div class="input-icon">
                                 <input type="text" class="auth-form-input" placeholder="Your password">
                             </div>
                             <label class="btn active">
                                 <input type="checkbox" name='email1' checked>
-                                <i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i> 
+                                <i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>
                                 <span> Remember password.</span>
                             </label>
                             <div class="footer-action">
@@ -24,7 +25,6 @@
                             </div>
                         </form>
                     </div>
-=======
 <div class="content">
     <!-- Form without bootstrap -->
     <div class="auth-wrapper">

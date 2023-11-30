@@ -51,8 +51,14 @@ if (isset($_GET['act'])) {
             break;
 
 
+<<<<<<< HEAD
         //tài khoản
         case 'addtk':   
+=======
+
+            //tài khoản
+        case 'addtk':
+>>>>>>> fc78cc44738db449b52ba5bb7858b6315915cda6
             include "taikhoan/add.php";
             break;
         case 'dskh':
