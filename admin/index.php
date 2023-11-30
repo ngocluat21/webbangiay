@@ -154,16 +154,25 @@ if (isset($_GET['act'])) {
             include "color_size/listcolor_size.php";
             break;
         case 'listsp':
+            
+            if (isset($_POST['listok']) && ($_POST['listok'])) {
+                $kyw = $_POST['kyw'];
+                $iddm = $_POST['iddm'];
+            } else {
+                $kyw = '';
+                $iddm = 0;
+            }
             if (isset($_POST['block'], $_GET['id'])) {
                 update_status_sp0($_GET['id']);
             } elseif (isset($_POST['active'], $_GET['id'])) {
                 update_status_sp1($_GET['id']);
             }
-            $listsp = loadall_sanpham();
             $listdm = loadall_danhmuc();
+            $listsp = loadall_sanphamseach($kyw, $iddm);
             include "sanpham/list.php";
             break;
 
+            
         // Sản phẩm biến thể
         case 'suasp':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {

@@ -15,6 +15,18 @@
         $listsp = pdo_query($sql);
         return $listsp;
     }
+    function loadall_sanphamseach($kyw,$iddm){
+        $sql="select * from sanpham where 1";
+        if($kyw!=""){
+            $sql.=" and namepro like '%".$kyw."%'";
+        }
+        if($iddm>0){
+            $sql.=" and iddm ='".$iddm."'";
+        }
+        $sql.=" order by id desc";
+        $listsanpham=pdo_query($sql);
+        return $listsanpham;
+    }
 
     function loadall_sanpham_home() {
         $sql = "SELECT sanpham.id, sanpham.namepro, sanpham.price, sanpham.discount, sanpham.img, sanpham.mota 
@@ -35,8 +47,8 @@
         if($iddm>0){
            $sql="select * from danhmuc where id=".$iddm;
         $dm=pdo_query_one($sql);
-        //extract ($dm);
-        return $name; 
+        extract ($dm);
+        return $namedm; 
         }else{
             return "";
         }

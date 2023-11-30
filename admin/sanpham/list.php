@@ -31,7 +31,7 @@
                 </tr>
                 <?php
                     $i = 1;
-                    foreach ($listsp as $sanpham) : 
+                    foreach ($listsp as $sanpham){
                         extract($sanpham);
                         $ansp = "index.php?act=listsp&id=".$id;
                         $sua = "index.php?act=suasp&id=".$id;
@@ -60,7 +60,7 @@
                         </td>
                     </tr>
 
-                <?php endforeach; ?>
+                <?php } ?>
 
             </table>
         </div>

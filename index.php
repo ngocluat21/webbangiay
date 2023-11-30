@@ -9,7 +9,6 @@ include "model/danhmuc.php";
 include "model/taikhoan.php";
 include "model/giohang.php";
 include "global.php";
-
 if (!isset($_SESSION['mycart'])) {
     $_SESSION['mycart'] = [];
 }
@@ -56,11 +55,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             } else {
                 $iddm = 0;
             }
-            $listsp = loadall_sanpham("$kyw", $iddm);
-            foreach($listsp as $tendm) {
-                extract($tendm);
-                $tendm = load_ten_dm($iddm);
-            }
+            $dssp = loadall_sanphamseach("$kyw", $iddm);
+            $tendm = load_ten_dm($iddm);
             include "view/sanpham.php";
             break;
 //test demo----------------------------------------------------------------

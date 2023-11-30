@@ -12,7 +12,7 @@
                         <p>Sản phẩm</p>
                     </div>
                     <div class="product">
-                        <?php foreach($listsp as $sanpham) {
+                        <?php foreach($dssp as $sanpham) {
                             extract($sanpham);
                             $link = "index.php?act=sanphamct&id=".$id;
                         ?>
