@@ -246,19 +246,27 @@ input[type="file"]:hover {
 
 /* css tìm kiểm */
 .flex_sea {
+    padding-top: 10px;
     width: 100%;
     height: 30px;
-    display: grid;
+    /* display: grid;
     grid-template-columns: 300px 300px 80px;
-    gap: 10px;
+    gap: 10px; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 .flex_sea input[type="text"], 
 .flex_sea select {
+    width: 200px;
     height: 30px;
+    margin-right: 10px;
 }
-.flex_sea input[type="submit"] {
+.flex_sea input[type="submit"], 
+.flex_sea input[type="button"] {
+    margin-right: 10px;
     text-align: center;
     padding: 8px 15px;
     height: 31px;
-    margin-top: 5px;
+    /* margin-top: 5px; */
 }

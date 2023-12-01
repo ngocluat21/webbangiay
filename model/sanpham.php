@@ -84,7 +84,7 @@
         return $allbt;
     }
     function loadone_spbt($idpro) {
-        $sql = "SELECT spbt.id as mabt, spbt.idpro as idpro, sanpham.img as img, sanpham.namepro as namepro, sanpham.price as price, sanpham.discount as discount, mausp.mau as mau, size.size as size
+        $sql = "SELECT spbt.id as mabt, spbt.idpro as idpro, spbt.soluong as soluongbt, sanpham.img as img, sanpham.namepro as namepro, sanpham.price as price, sanpham.discount as discount, mausp.mau as mau, size.size as size
                 FROM spbt 
                 JOIN sanpham ON spbt.idpro = sanpham.id
                 JOIN mausp ON spbt.idmau = mausp.id 
@@ -145,4 +145,10 @@
         $sql = "SELECT * FROM sanpham WHERE id=$iddm";
         $loadspdm = pdo_query($sql);
         return $loadspdm;
+    }
+
+    function loadall_spbt($idpro) {
+        $sql = "SELECT * FROM spbt WHERE spbt.idpro = $idpro";
+        $listall_bt = pdo_query($sql);
+        return $listall_bt;
     }

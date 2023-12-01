@@ -15,8 +15,8 @@
                         <?php 
                             foreach ($loadsp as $sanpham) {
                                 extract($sanpham);
-                                $link = "index.php?act=sanphamct&id=".$id;
-                                $hinh = $img_path.$img;
+                                $link = "index.php?act=sanphamct&id=".$sanpham['id'];
+                                $hinh = $img_path.$sanpham['img'];
                         ?>
                                 <div class="box_pro">
                                     <div class="img_pro">
@@ -28,41 +28,51 @@
                                         </div>
                                     </div>
                                     <div class="remote">
-                                        <div class="rm"><a href="sanphamct.php"><?=$namepro?></a></div>
+                                        <div class="rm"><a href="sanphamct.php"><?=$sanpham['namepro']?></a></div>
                                         <div class="price flex_c">
-                                            <p><?=$price?><u>đ</u></p>
-                                            <?php if ($discount > 0) {
+                                            <p><?=$sanpham['price']?><u>đ</u></p>
+                                            <?php if ($sanpham['discount'] > 0) {
                                                 echo '
                                                     <div class="old_price">
-                                                        <del>'.$discount.'đ</del>
+                                                        <del>'.$sanpham['discount'].'đ</del>
                                                     </div>
                                                 ';
                                             }
                                             ?>
                                         </div>
                                         <form action="index.php?act=addgiohang" method="post">
-                                            <?php foreach($spbt as $giohang) {
-                                                extract($giohang);
-                                                echo '
-                                                        <input type="hidden" name="id" value="'.$giohang['idpro'].'">
-                                                        <input type="hidden" name="id" value="'.$giohang['mabt'].'">
-                                                        <input type="hidden" name="img" value="'.$giohang['img'].'">
-                                                        <input type="hidden" name="namepro" value="'.$giohang['namepro'].'">
-                                                        <input type="hidden" name="price" value="'.$giohang['price'].'">
-                                                        <input type="hidden" name="discount" value="'.$giohang['discount'].'">
-                                                        <input type="hidden" id="inputColor" name="mau" value="'.$giohang['mau'].'">
-                                                        <input type="hidden" id="inputSize" name="size" value="'.$giohang['size'].'">
-                                                        <input type="hidden" id="amount-hd" name="soluong" value="1">
-                                                        ';
-                                                    }
-                                            ?>
-                                            <input style="width: 100%;" type="submit" name="addgiohang" value="Thêm vào giỏ hàng">
-                                            
+                                        <?php 
+                                            $listall_bt = loadall_spbt($sanpham['id']);
+                                            $spbt = loadone_spbt($sanpham['id']);
 
+                                            foreach ($listall_bt as $bt) {
+                                                foreach ($spbt as $giohang) {
+                                                    extract($giohang);
+
+                                                    if ($sanpham['id'] == $bt['idpro']) {
+                                        ?>
+                                                        <input type="hidden" name="idpro" value="<?=$giohang['idpro']?>">
+                                                        <input type="hidden" name="id" value="<?=$giohang['mabt']?>">
+                                                        <input type="hidden" name="img" value="<?=$giohang['img']?>">
+                                                        <input type="hidden" name="namepro" value="<?=$giohang['namepro']?>">
+                                                        <input type="hidden" name="price" value="<?=$giohang['price']?>">
+                                                        <input type="hidden" name="discount" value="<?=$giohang['discount']?>">
+                                                        <input type="hidden" id="inputColor" name="mau" value="<?=$giohang['mau']?>">
+                                                        <input type="hidden" id="inputSize" name="size" value="<?=$giohang['size']?>">
+                                                        <input type="hidden" id="amount-hd" name="soluong" value="1">
+                                        <?php
+                                                    }
+                                                }
+                                            }
+                                        ?>
+
+                                            <input style="width: 100%;" type="submit" name="addgiohang" value="Thêm vào giỏ hàng">
                                         </form>
                                     </div>
                                 </div>
-                        <?php } ?>
+                        <?php 
+                            } 
+                        ?>
                         <!-- <div class="box_pro">
                             <div class="img_pro">
                                 <a href="sanphamct.html">

@@ -1,4 +1,5 @@
 <?php
+session_name('user_cart');
 session_start();
 ob_start();
 include "view/header.php";
@@ -15,15 +16,18 @@ if (!isset($_SESSION['mycart'])) {
 }
 // unset($_SESSION['mycart']);
 $listsp = loadall_sanpham();
+
+// extract($listall_bt);
 foreach($listsp as $spdg) {
     extract($spdg);
     $loadspdm = loadall_spdm($id);
-    $spbt = loadone_spbt($id);   //thay đổi
+    // $spbt = loadone_spbt($id);   //thay đổi
 }
 $dg = load_sp_dg();
 $loadsp = loadall_sanpham_home();
 $listspnb = load_sp_nb();
 $loaddm = loadall_danhmuc_user();
+
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {
@@ -70,6 +74,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
         // giỏ hàng    
         case "addgiohang":
             if (isset($_POST['addgiohang']) && ($_POST['addgiohang'])) {
+                $idpro = $_POST['idpro'];
                 $id = $_POST['id'];
                 $img = $_POST['img'];
                 $namepro = $_POST['namepro'];
@@ -117,19 +122,38 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
         // thanh toán
         case "thanhtoan":
-            if (isset($_POST['thanhtoan']) && ($_POST['thanhtoan'])) {
-                $id = $_POST['id'];
-                $img = $_POST['img'];
-                $namepro = $_POST['namepro'];
-                $price = $_POST['price'];
-                $discount = $_POST['discount'];
-                $mau = $_POST['mau'];
-                $size = $_POST['size'];
-                $soluong = $_POST['soluong'];
-                $spbtgh = [$id, $img, $namepro, $price, $discount, $mau, $size, $soluong];
-                array_push($_SESSION['mycart'], $spbtgh);
+            if (isset($_SESSION['user'])) {
+                if (isset($_POST['thanhtoan']) && ($_POST['thanhtoan'])) {
+                    $id = $_POST['id'];
+                    $img = $_POST['img'];
+                    $namepro = $_POST['namepro'];
+                    $price = $_POST['price'];
+                    $discount = $_POST['discount'];
+                    $mau = $_POST['mau'];
+                    $size = $_POST['size'];
+                    $soluong = $_POST['soluong'];
+                    var_dump($id);
+                    $spbtgh = [$id, $img, $namepro, $price, $discount, $mau, $size, $soluong];
+                    array_push($_SESSION['mycart'], $spbtgh);
+                }
+                $uniqueProducts = [];
+                foreach ($_SESSION['mycart'] as $cartItem) {
+                    $productID = $cartItem[0];
+                    $quantityToAdd = (int)$cartItem[7];
+                    if (!isset($uniqueProducts[$productID])) {
+                        $uniqueProducts[$productID] = $cartItem;
+                    } else {
+                        // Nếu sản phẩm đã tồn tại, cộng thêm số lượng
+                        $currentQuantity = (int)$uniqueProducts[$productID][7];
+                        $uniqueProducts[$productID][7] = $currentQuantity + $quantityToAdd;
+                    }
+                }
+                $_SESSION['mycart'] = array_values($uniqueProducts);
+                include "view/giohang/thanhtoan.php";
+            } else {
+                echo '<script>alert("Đăng ký để mua hàng")</script>';
+                header("Location: index.php?act=dangky");
             }
-            include "view/giohang/thanhtoan.php";
             break;
         case "confirm":
             if (isset($_POST['order']) && ($_POST['order'])) {
@@ -207,30 +231,43 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             }
             include "view/taikhoan/dangky.php";
             break;
+      
         case "dangnhap":
             if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
                 $pass = $_POST['pass'];
-                $username   = $_POST['username'];
+                $username = $_POST['username'];
                 $checkusername = checkusername($username, $pass);
                 if (is_array($checkusername)) {
                     $_SESSION['user'] = $checkusername;
-                    //$thongbao = "da dang nhap thanh cong";
+
+                    // Kiểm tra xem session "user_cart" có tồn tại không
+                    if (isset($_SESSION['user_cart'])) {
+                        // Sao chép giỏ hàng từ session "user_cart" vào giỏ hàng chính "mycart"
+                        $_SESSION['mycart'] = $_SESSION['user_cart'];
+
+                        // Xóa session "user_cart" sau khi đã khôi phục giỏ hàng
+                        unset($_SESSION['user_cart']);
+                    }
+
                     header('Location: index.php');
+                    exit();
                 } else {
-                    $thongbao = "tai khoan khong ton tai";
+                    $thongbao = "Tai khoan khong ton tai";
                 }
             }
 
             include "view/taikhoan/dangnhap.php";
             break;
+
+
         case "quenmk":
             if (isset($_POST['gui']) && ($_POST['gui'])) {
                 $email = $_POST['email'];
                 $checkemail = checkemail($email);
                 if (is_array($checkemail)) {
-                    $thongbao = "mat khau la:" . $checkemail['pass'];
+                    $thongbao = "Mat khau la:" . $checkemail['pass'];
                 } else {
-                    $thongbao = "email nay khong ton tai";
+                    $thongbao = "Email nay khong ton tai";
                 }
             }
             include "view/taikhoan/quenmk.php";
@@ -252,6 +289,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
         case "dangxuat";
             if (isset($_SESSION['user'])) {
+                $_SESSION['user_cart'] = $_SESSION['mycart'];
+                unset($_SESSION['mycart']);
                 unset($_SESSION['user']); // xóa session login
             }
             header('Location: index.php');

@@ -3,7 +3,7 @@
             <div class="h2cter">
                 <h2 class="complete"><?=$thongbao?></h2>
                 <div class="btn_action">
-                    <a href="index.php?act=yourorder">
+                    <a href="index.php?act=yourorder" style="margin-right: 10px;">
                         <input type="button" value="Đơn hàng của tôi">
                     </a>
                     <a href="index.php">
@@ -66,7 +66,7 @@
                                     <img class="i_p" src="upload/'.$cart[1].'" alt="">
                                     <div class="nsc_p">
                                         <p>'.$cart[2].'</p>
-                                        <span>Màu: '.$cart[5].'|</span><span>Size: '.$cart[6].'|</span><span>Số lượng: '.$cart[7].'</span>
+                                        <span>Màu: '.$cart[5].' |</span><span>Size: '.$cart[6].' |</span><span>Số lượng: '.$cart[7].'</span>
                                     </div>
                                     <p class="total_pay">'.$cart[3].' đ</p>
                                 </div>
@@ -75,14 +75,6 @@
                             }
                         }
                         ?>
-                        <!-- <div class="card_product">
-                            <img class="i_p" src="assets/images/giay-adidas-galaxy-star-nam-den-trang-01-800x800.png" alt="">
-                            <div class="nsc_p">
-                                <p>Giày Adidas</p>
-                                <span>Màu: Black</span><span>Size: L</span>
-                            </div>
-                            <p class="total_pay">193898 đ</p>
-                        </div> -->
                         <div class="card_pay">
                             <div class="card_title mb">
                                 <p>Total</p>

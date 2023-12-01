@@ -36,6 +36,13 @@
                     <div class="auth-forgot-password">
                         <a href="index.php?act=quenmk">Forgot Password</a>
                     </div>
+                    <?php if (isset($thongbao) && $thongbao != "") {
+                        echo 
+                            '<script type="text/javascript">
+                                alert("'.$thongbao.'"); 
+                            </script>';
+                    }
+                    ?>
                 </div>
             </div>
             <div class="auth-action-right">

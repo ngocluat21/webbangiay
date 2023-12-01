@@ -14,9 +14,10 @@
                                 <span>MÀU: ' . $cart[5] . '</span><span>SIZE: ' . $cart[6] . '</span>
                             </div>
                             <strong style="display: none;" id="displayQuantity"></strong>
+                            <input type="hidden" name="soluongmoi" id="amount-hidden" value="1">
                             <div class="remote_ct quantity-container">
                                 <button class="decrease"><i class="fa fa-minus"></i></button>
-                                <input type="text" name="soluong" class="quantitybtn" value="'.(($cart[7] == "") ? (int)$cart[7] = 1 : (int)$cart[7]).'">
+                                <input type="number" name="soluong" class="quantitybtn" value="'.(($cart[7] == "") ? (int)$cart[7] = 1 : (int)$cart[7]).'">
                                 <button class="increase"><i class="fa fa-plus"></i></button>
                             </div>
                         </div>

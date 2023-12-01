@@ -240,6 +240,7 @@ img {
 .boxinfo {
     float: right;
     width: 50%;
+    padding-right: 50px;
 }
 .float {
     width: 100%;
@@ -814,4 +815,9 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: white;
     border-radius: 5px;
     border: 1px #6c6969 solid;
+}
+/* Thong báo đăt hàng thành công */
+.complete {
+    color: #4daa50;
+    margin: 10px;
 }
