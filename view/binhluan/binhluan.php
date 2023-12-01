@@ -71,7 +71,7 @@
                         extract($bl);
                         echo '<tr>
                             <td>"'.$noidung.'"</td>
-                            <td>"'.$iduser.'"</td>
+                            <td>"'.$username.'"</td>
                             <td>"'.$ngaybinhluan.'"</td>
                         </tr>';
                      }

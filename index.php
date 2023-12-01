@@ -10,7 +10,6 @@ include "model/danhmuc.php";
 include "model/taikhoan.php";
 include "model/giohang.php";
 include "global.php";
-
 if (!isset($_SESSION['mycart'])) {
     $_SESSION['mycart'] = [];
 }
@@ -46,13 +45,23 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
         
         // sản phẩm
         case "sanpham":
-            $listsp = loadall_sanpham();
-            foreach($listsp as $spdm) {
-                extract($spdm);
-                $loadspdm = loadall_spdm($iddm);
+            //---------------------------------------------------------
+            if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
+                $kyw = $_POST['kyw'];
+            } else {
+                $kyw = "";
             }
+            if (isset($_GET['iddm']) && ($_GET['iddm'] > 0)) {
+                $iddm = $_GET['iddm'];
+            } else {
+                $iddm = 0;
+            }
+            $dssp = loadall_sanphamseach("$kyw", $iddm);
+            $tendm = load_ten_dm($iddm);
             include "view/sanpham.php";
             break;
+        //test demo----------------------------------------------------------------
+
         case "sanphamct":
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 if (isset($_SESSION['user'])) {

@@ -13,7 +13,7 @@
             }
             ?>
         </select>
-        <input type="submit" name="listok" value="FIND">
+        <input type="submit" name="listok" value="TÌM KIẾM">
     </form>
     <div class="row frmcontent">
         <div class="row mb10 frmdsloai">
@@ -31,7 +31,7 @@
                 </tr>
                 <?php
                     $i = 1;
-                    foreach ($listsp as $sanpham) : 
+                    foreach ($listsp as $sanpham){
                         extract($sanpham);
                         $ansp = "index.php?act=listsp&id=".$id;
                         $sua = "index.php?act=suasp&id=".$id;
@@ -60,7 +60,7 @@
                         </td>
                     </tr>
 
-                <?php endforeach; ?>
+                <?php } ?>
 
             </table>
         </div>
