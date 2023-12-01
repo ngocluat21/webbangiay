@@ -171,9 +171,34 @@
                                         }
                                         ?>
                                     </div>
-                                    <a href="index.php?act=addgiohang">
-                                        <input type="button" value="Thêm vào giỏ hàng">
-                                    </a>
+                                    <form action="index.php?act=addgiohang" method="post">
+                                        <?php 
+                                            $listall_bt = loadall_spbt($sanpham['id']);
+                                            $spbt = loadone_spbt($sanpham['id']);
+
+                                            foreach ($listall_bt as $bt) {
+                                                foreach ($spbt as $giohang) {
+                                                    extract($giohang);
+
+                                                    if ($sanpham['id'] == $bt['idpro']) {
+                                        ?>
+                                                        <input type="hidden" name="idpro" value="<?=$giohang['idpro']?>">
+                                                        <input type="hidden" name="id" value="<?=$giohang['mabt']?>">
+                                                        <input type="hidden" name="img" value="<?=$giohang['img']?>">
+                                                        <input type="hidden" name="namepro" value="<?=$giohang['namepro']?>">
+                                                        <input type="hidden" name="price" value="<?=$giohang['price']?>">
+                                                        <input type="hidden" name="discount" value="<?=$giohang['discount']?>">
+                                                        <input type="hidden" id="inputColor" name="mau" value="<?=$giohang['mau']?>">
+                                                        <input type="hidden" id="inputSize" name="size" value="<?=$giohang['size']?>">
+                                                        <input type="hidden" id="amount-hd" name="soluong" value="1">
+                                        <?php
+                                                    }
+                                                }
+                                            }
+                                        ?>
+
+                                            <input style="width: 100%;" type="submit" name="addgiohang" value="Thêm vào giỏ hàng">
+                                    </form>
                                 </div>
                             </div>
                         <?php } ?>
@@ -250,30 +275,56 @@
                             // echo '</pre>';
                             if ($gia['discount'] > $gia['price']) {
                                 $percent = (($gia['discount'] - $gia['price']) / $gia['discount']) * 100;
-                                echo '
+                        ?>
+
                                     <div class="box_pro">
                                         <div class="img_pro">
-                                            <a href="'.$link.'">
-                                                <img src="'.$img_path.$img.'" alt="">
+                                            <a href="<?=$link?>">
+                                                <img src="<?=$img_path.$img?>" alt="">
                                             </a>
                                             <div class="span">
-                                                <span>-'.$percent.'%</span>
+                                                <span>-<?=$percent?>%</span>
                                             </div>
                                         </div>
                                         <div class="remote">
-                                            <a href="'.$link.'">'.$namepro.'</a>
+                                            <a href="<?=$link?>"><?=$namepro?></a>
                                             <div class="price flex_c">
-                                                <p>'.$gia['price'].'<u>đ</u></p>
+                                                <p><?=$gia['price']?><u>đ</u></p>
                                                 <div class="old_price">
-                                                    <del>'.$gia['discount'].'đ</del>
+                                                    <del><?=$gia['discount']?>đ</del>
                                                 </div>
                                             </div>
-                                            <a href="index.php?act=addgiohang">
-                                                <input type="button" value="Thêm vào giỏ hàng">
-                                            </a>
+                                            <form action="index.php?act=addgiohang" method="post">
+                                        <?php 
+                                            $listall_bt = loadall_spbt($sanpham['id']);
+                                            $spbt = loadone_spbt($sanpham['id']);
+
+                                            foreach ($listall_bt as $bt) {
+                                                foreach ($spbt as $giohang) {
+                                                    extract($giohang);
+
+                                                    if ($sanpham['id'] == $bt['idpro']) {
+                                        ?>
+                                                        <input type="hidden" name="idpro" value="<?=$giohang['idpro']?>">
+                                                        <input type="hidden" name="id" value="<?=$giohang['mabt']?>">
+                                                        <input type="hidden" name="img" value="<?=$giohang['img']?>">
+                                                        <input type="hidden" name="namepro" value="<?=$giohang['namepro']?>">
+                                                        <input type="hidden" name="price" value="<?=$giohang['price']?>">
+                                                        <input type="hidden" name="discount" value="<?=$giohang['discount']?>">
+                                                        <input type="hidden" id="inputColor" name="mau" value="<?=$giohang['mau']?>">
+                                                        <input type="hidden" id="inputSize" name="size" value="<?=$giohang['size']?>">
+                                                        <input type="hidden" id="amount-hd" name="soluong" value="1">
+                                        <?php
+                                                    }
+                                                }
+                                            }
+                                        ?>
+
+                                            <input style="width: 100%;" type="submit" name="addgiohang" value="Thêm vào giỏ hàng">
+                                        </form>
                                         </div>
                                     </div>
-                                ';
+                        <?php
                             }
                         }
                         ?>

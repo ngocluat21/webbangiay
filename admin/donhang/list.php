@@ -84,10 +84,5 @@
 
                     </table>
                 </div>
-                <!-- <div class="row mb10">
-                    <input type="button" value="CHỌN TẤT CẢ">
-                    <input type="button" value="BỎ CHỌN TẤT CẢ">
-                    <input type="button" value="XÓA CÁC MỤC ĐÃ CHỌN">
-                </div> -->
             </div>
         </div>

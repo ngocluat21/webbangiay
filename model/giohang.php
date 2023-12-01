@@ -72,7 +72,9 @@
     WHERE 
         bill.iduser = $iduser
     GROUP BY 
-        bill.id, bill.ngaydathang, bill.total, bill.bill_status;
+        bill.id, bill.ngaydathang, bill.total, bill.bill_status
+    ORDER BY 
+        bill.bill_status = 1 DESC
     ";
         $loadallbill = pdo_query($sql);
         return $loadallbill;

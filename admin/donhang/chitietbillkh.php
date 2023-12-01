@@ -48,12 +48,17 @@
             </table>
         </div>
         <div class="row mb10">
-                
-            <form action="index.php?act=updatettbill" method="post">
-                <input type="hidden" name="idbill" value="'.$cart['idbill'].'">
-                <input type="submit" name="xacnhan" value="XÁC NHẬN">
-            </form>
-            
+            <?php foreach($listbill as $bill) {
+                if($bill['id'] == $_GET['idbill'] && ($bill['bill_status'] != 1 && 2 && 3)) {
+                    echo '
+                        <form action="index.php?act=updatettbill" method="post">
+                            <input type="hidden" name="idbill" value="'.$cart['idbill'].'">
+                            <input type="submit" name="xacnhan" value="XÁC NHẬN">
+                        </form>
+                    ';
+                }
+            }   
+            ?>
         </div>
     </div>
 </div>

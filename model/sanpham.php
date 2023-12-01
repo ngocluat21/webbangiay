@@ -11,6 +11,12 @@
     }
 
     function loadall_sanpham() {
+        $sql = "SELECT * FROM sanpham WHERE status = 1";
+        $listsp = pdo_query($sql);
+        return $listsp;
+    }
+
+    function loadall_sanpham_admin() {
         $sql = "SELECT * FROM sanpham";
         $listsp = pdo_query($sql);
         return $listsp;
@@ -43,13 +49,13 @@
     }
 
     function load_sp_nb() {
-        $sql = "SELECT * FROM sanpham ORDER BY luotxem DESC LIMIT 0,3";
+        $sql = "SELECT * FROM sanpham WHERE status = 1 ORDER BY luotxem DESC LIMIT 0,3";
         $listspnb = pdo_query($sql);
         return $listspnb;
     }
 
     function load_sp_dg() {
-        $sql = "SELECT * FROM sanpham WHERE price = (SELECT price FROM sanpham GROUP BY price HAVING COUNT(id) > 1) LIMIT 0,3";
+        $sql = "SELECT * FROM sanpham WHERE status = 1 AND price = (SELECT price FROM sanpham GROUP BY price HAVING COUNT(id) > 1) LIMIT 0,3";
         $dg = pdo_query($sql);
         // SELECT sp1.*, sp2.* 
         // FROM sanpham sp1

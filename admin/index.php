@@ -160,7 +160,7 @@ if (isset($_GET['act'])) {
             } elseif (isset($_POST['active'], $_GET['id'])) {
                 update_status_sp1($_GET['id']);
             }
-            $listsp = loadall_sanpham();
+            $listsp = loadall_sanpham_admin();
             $listdm = loadall_danhmuc();
             include "sanpham/list.php";
             break;
@@ -202,7 +202,7 @@ if (isset($_GET['act'])) {
             $list_m = loadall_mau();
             $list_s = loadall_size();
             $listdm = loadall_danhmuc();
-            $listsp = loadall_sanpham();
+            $listsp = loadall_sanpham_admin();
             include "sanpham/list.php";
             break;
 
@@ -235,6 +235,7 @@ if (isset($_GET['act'])) {
             break;
         case 'billct':
             $idkh = loadallid_kh();
+            $listbill = loadall_bill_admin();
             foreach ($idkh as $kh) {
                 $keybill = loadid_bill($kh['id']);
             
