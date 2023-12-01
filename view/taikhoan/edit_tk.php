@@ -9,27 +9,27 @@
         <form action="index.php?act=edit_tk" method="post">
             <div class="form-field">
                 Tên đăng ký <br>
-                <input type="text" name="username" value="<?= $username ?>">
+                <input type="text" name="username" value="<?= $username ?> required">
             </div>
 
             <div class="form-field">
                 Email <br>
-                <input type="email" name="email" value="<?= $email ?>">
+                <input type="email" name="email" value="<?= $email ?> required">
             </div>
 
             <div class="form-field">
                 Mật khẩu <br>
-                <input type="password" name="pass" value="<?= $pass ?>">
+                <input type="password" name="pass" value="<?= $pass ?> required">
             </div>
 
             <div class="form-field">
                 Địa chỉ <br>
-                <input type="text" name="address" value="<?= $address ?>">
+                <input type="text" name="address" value="<?= $address ?> required">
             </div>
 
             <div class="form-field">
                 Số điện thoại <br>
-                <input type="text" name="tel" value="<?= $tel ?>">
+                <input type="text" name="tel" value="<?= $tel ?> required">
             </div>
 
             <div class="form-field flex_c">

@@ -51,7 +51,6 @@
                             <input type="submit" value="gửi" name="gui" class="auth-submit">
                         </div>
                     </form>
->>>>>>> 8814f565cb2fee570b40dd3c5a0b5b610fb1119e
                 </div>
             </div>
             <div class="auth-action-right">

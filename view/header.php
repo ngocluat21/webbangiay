@@ -13,7 +13,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" 
           integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" 
     />
+    <style>
+        .error-message {
+            color: red;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var email = document.getElementById("email").value;
+            var pass = document.getElementById("pass").value;
+            var address = document.getElementById("address").value;
+            var tel = document.getElementById("tel").value;
+
+            if (username == "" || username == "null") {
+                document.getElementById("username-error").innerHTML = "Vui lòng nhập tên đăng nhập.";
+                return false;
+            } else {
+                document.getElementById("username-error").innerHTML = "";
+            }
+
+            if (pass == "" || pass =="null") {
+                document.getElementById("pass-error").innerHTML = "Vui lòng nhập mật khẩu.";
+                return false;
+            } else {
+                document.getElementById("pass-error").innerHTML = "";
+            }
+            if (email == "" || enaill =="null") {
+                document.getElementById("email-error").innerHTML = "Vui lòng nhập email.";
+                return false;
+            } else {
+                document.getElementById("email-error").innerHTML = "";
+            }
+            if (address == "" || address =="null") {
+                document.getElementById("address-error").innerHTML = "Vui lòng nhập mật khẩu.";
+                return false;
+            } else {
+                document.getElementById("address-error").innerHTML = "";
+            }
+            if (tel == "" || tel =="null") {
+                document.getElementById("tel-error").innerHTML = "Vui lòng nhập mật khẩu.";
+                return false;
+            } else {
+                document.getElementById("tel-error").innerHTML = "";
+            }
+
+            return true;
+        }
+    </script>
 </head>
+
 
 <body>
     <div class="contaier">
@@ -77,6 +129,20 @@
                         <li class="dropdown_item">
                             <a href="index.php?act=dangxuat" class="dropdown_link">
                                 <span class="dropdown_text">Đăng xuất</span>
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                            </a>
+                        </li>
+                        <li class="dropdown_item">
+                            <?php
+                            // Assuming $role should be initialized to some default value if not set
+                            $role = isset($role) ? $role : 0;
+
+                            if ($role == 1) {
+                                // Your code here
+                            }
+                            ?>
+                            <a href="admin/index.php" class="dropdown_link">
+                                <span class="dropdown_text">Đăng nhập vào Admin</span>
                                 <i class="fa-solid fa-right-from-bracket"></i>
                             </a>
                         </li>

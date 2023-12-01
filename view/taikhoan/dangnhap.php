@@ -17,17 +17,24 @@
                         </div>
                         <p class="auth-sgt">or sign in with:</p>
                     </div>
-                    <form class="login-form" action="index.php?act=dangnhap" method="post">
-                        <input type="text" name="username" class="auth-form-input" placeholder="username">
-                        <div class="input-icon">
-                            <input type="password" name="pass" class="auth-form-input" placeholder="Password">
+                    <form class="login-form" action="index.php?act=dangnhap" method="post" onsubmit="return validateForm()">
+                    <div class="input-group">
+                        <input type="text" id="username" name="username" class="auth-form-input" placeholder="username" >
+                        <div id="username-error" class="error-message"></div>
+                    </div>
+                        <div class="input-icon input-group">
+                            <input type="password" id="pass" name="pass" class="auth-form-input" placeholder="Password">
                             <i class="fa fa-eye show-password"></i>
+                            <div id="pass-error" class="error-message"></div>
                         </div>
                         <label class="btn active">
                             <input type="checkbox" name='email' checked>
                             <i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>
                             <span> Remember password.</span>
                         </label>
+                        <br>
+                        <?=$erro?>
+                        
                         <div class="footer-action">
                             <input type="submit" value="Đăng nhập" name="dangnhap" class="auth-submit">
                             <a href="register.html" class="auth-btn-direct">Đăng ký</a>
