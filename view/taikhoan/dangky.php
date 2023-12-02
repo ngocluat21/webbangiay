@@ -34,16 +34,16 @@
                     </div>
 
                     <form class="login-form" action="index.php?act=dangky" method="post" onsubmit="return validateForm()">
-                        <label for="username">Name:</label>
+                    
                         <input type="text" name="username" class="auth-form-input" id="username" placeholder="Name" required>
-                        <label for="email">Name:</label>
+        
                         <input type="email" name="email" class="auth-form-input" id="email" placeholder="Email" required>
-                        <label for="tel">Name:</label>
+
                         <input type="text" name="tel" class="auth-form-input" placeholder="Phone number" required>
-                        <label for="address">Name:</label>
+                
                         <input type="text" name="address" class="auth-form-input" placeholder="Address" required>
                         <div class="input-icon">
-                        <label for="pass">Name:</label>
+    
                             <input type="password" name="pass" class="auth-form-input" placeholder="Password" required>
                             <i class="fa fa-eye show-password"></i>
                         </div>

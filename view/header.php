@@ -24,10 +24,7 @@
     <script>
         function validateForm() {
             var username = document.getElementById("username").value;
-            var email = document.getElementById("email").value;
             var pass = document.getElementById("pass").value;
-            var address = document.getElementById("address").value;
-            var tel = document.getElementById("tel").value;
 
             if (username == "" || username == "null") {
                 document.getElementById("username-error").innerHTML = "Vui lòng nhập tên đăng nhập.";
@@ -41,24 +38,6 @@
                 return false;
             } else {
                 document.getElementById("pass-error").innerHTML = "";
-            }
-            if (email == "" || enaill =="null") {
-                document.getElementById("email-error").innerHTML = "Vui lòng nhập email.";
-                return false;
-            } else {
-                document.getElementById("email-error").innerHTML = "";
-            }
-            if (address == "" || address =="null") {
-                document.getElementById("address-error").innerHTML = "Vui lòng nhập mật khẩu.";
-                return false;
-            } else {
-                document.getElementById("address-error").innerHTML = "";
-            }
-            if (tel == "" || tel =="null") {
-                document.getElementById("tel-error").innerHTML = "Vui lòng nhập mật khẩu.";
-                return false;
-            } else {
-                document.getElementById("tel-error").innerHTML = "";
             }
 
             return true;
