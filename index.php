@@ -75,10 +75,15 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $pass = $_POST['pass'];
                 $username   = $_POST['username'];
                 $checkusername = checkusername($username, $pass);
+
                 if (is_array($checkusername)) {
-                    $_SESSION['username'] = $checkusername;
-                    //$thongbao = "da dang nhap thanh cong";
-                    header('Location: index.php');
+                    if ($checkusername['role'] == 1) {
+                        $_SESSION['username'] = $checkusername;
+                        header('Location: admin/index.php');
+                    } else {
+                        $_SESSION['username'] = $checkusername;
+                        header('Location: index.php');
+                    }
                 } else {
                     $thongbao = "tai khoan khong ton tai";
                 }
