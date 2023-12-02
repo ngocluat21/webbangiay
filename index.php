@@ -246,8 +246,18 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $pass = $_POST['pass'];
                 $username = $_POST['username'];
                 $checkusername = checkusername($username, $pass);
+
                 if (is_array($checkusername)) {
+
                     $_SESSION['user'] = $checkusername;
+                    
+                    if ($checkusername['role'] == 1) {
+                        $_SESSION['username'] = $checkusername;
+                        header('Location: admin/index.php');
+                    } else {
+                        $_SESSION['username'] = $checkusername;
+                        header('Location: index.php');
+                    }
 
                     // Kiểm tra xem session "user_cart" có tồn tại không
                     if (isset($_SESSION['user_cart'])) {
@@ -258,8 +268,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                         unset($_SESSION['user_cart']);
                     }
 
-                    header('Location: index.php');
-                    exit();
+
                 } else {
                     $thongbao = "Tai khoan khong ton tai";
                 }

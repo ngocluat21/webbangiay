@@ -30,7 +30,7 @@
                         </label>
                         <div class="footer-action">
                             <input type="submit" value="Đăng nhập" name="dangnhap" class="auth-submit">
-                            <a href="register.html" class="auth-btn-direct">Đăng ký</a>
+                            <a href="index.php?act=dangky" class="auth-btn-direct">Đăng ký</a>
                         </div>
                     </form>
                     <div class="auth-forgot-password">

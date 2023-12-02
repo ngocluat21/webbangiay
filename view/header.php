@@ -80,20 +80,6 @@
                                 <i class="fa-solid fa-right-from-bracket"></i>
                             </a>
                         </li>
-                        <li class="dropdown_item">
-                            <?php
-                           
-                            $role = isset($role) ? $role : 0;
-
-                            if ($role == 1) {
-                               
-                            }
-                            ?>
-                            <a href="admin/index.php" class="dropdown_link">
-                                <span class="dropdown_text">Đăng nhập vào Admin</span>
-                                <i class="fa-solid fa-right-from-bracket"></i>
-                            </a>
-                        </li>
                     </ul>
                 </div>
                 <div class="icon_cart">

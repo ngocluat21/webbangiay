@@ -7,8 +7,11 @@ function insert_taikhoan($username, $pass, $email, $address, $tel)
 function checkusername($username, $pass)
 {
     $sql = "select * from taikhoan where username='" . $username . "' AND pass='" . $pass . "'";
-    $sp = pdo_query_one($sql);
-    return $sp;
+
+
+
+    $tk = pdo_query_one($sql);
+    return $tk;
 }
 function checkemail($email)
 {
@@ -16,6 +19,7 @@ function checkemail($email)
     $sp = pdo_query_one($sql);
     return $sp;
 }
+
 function update_taikhoan($id, $username, $pass, $email, $address, $tel)
 {
     $sql = "update taikhoan set username='" . $username . "',pass='" . $pass . "',email='" . $email . "',address='" . $address . "',tel='" . $tel . "' where id=" . $id;
