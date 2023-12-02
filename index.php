@@ -36,9 +36,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
         case "lienhe":
             include "view/lienhe.php";
             break;
-        case "gopy":
-            include "view/gopy.php";
-            break;
         case "hoidap":
             include "view/hoidap.php";
             break;
@@ -115,10 +112,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
         case "delcart":
             if (isset($_GET['idcart'])) {
                 $idCart = (int)$_GET['idcart'];
-                var_dump($idCart);
-                // array_splice($_SESSION['mycart'], $idCart, 1);
                 unset($_SESSION['mycart'][$idCart]);
-                // $_SESSION['mycart'] = array_values($_SESSION['mycart']);
             } else {
                 $_SESSION['mycart'] = [];
             }

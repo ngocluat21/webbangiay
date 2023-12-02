@@ -80,7 +80,6 @@
                     <li><a href="index.php?act=sanpham">Sản phẩm</a></li>
                     <li><a href="index.php?act=gioithieu">Giới thiệu</a></li>
                     <li><a href="index.php?act=lienhe">Liên hệ</a></li>
-                    <li><a href="index.php?act=hoidap">Hỏi đáp</a></li>
                     <li><a href="index.php?act=gopy">Góp ý</a></li>
                 </ul>
             </div>
@@ -110,11 +109,17 @@
                                 <i class="fa-solid fa-right-to-bracket"></i>
                             </a>
                         </li>
-                        <li class="dropdown_item">
-                            <a href="index.php?act=yourcart" class="dropdown_link">
-                                <span class="dropdown_text">Đơn hàng của tôi</span>
-                            </a>
-                        </li>
+                        <?php if (isset($_SESSION['user'])) {
+                            echo '
+                                <li class="dropdown_item">
+                                    <a href="index.php?act=yourcart" class="dropdown_link">
+                                        <span class="dropdown_text">Đơn hàng của tôi</span>
+                                    </a>
+                                </li>
+                            ';
+                        }
+                        ?>
+
                         <li class="dropdown_item">
                             <a href="index.php?act=quenmk" class="dropdown_link">
                                 <span class="dropdown_text">Quên mật khẩu</span>
