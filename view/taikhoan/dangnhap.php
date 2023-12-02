@@ -19,11 +19,11 @@
                     </div>
                     <form class="login-form" action="index.php?act=dangnhap" method="post" onsubmit="return validateForm()">
                     <div class="input-group">
-                        <input type="text" id="username" name="username" class="auth-form-input" placeholder="username" >
+                        <input type="text" id="username" name="username" class="auth-form-input" placeholder="Họ tên" >
                         <div id="username-error" class="error-message"></div>
                     </div>
                         <div class="input-icon input-group">
-                            <input type="password" id="pass" name="pass" class="auth-form-input" placeholder="Password">
+                            <input type="password" id="pass" name="pass" class="auth-form-input" placeholder="Mật khẩu">
                             <i class="fa fa-eye show-password"></i>
                             <div id="pass-error" class="error-message"></div>
                         </div>

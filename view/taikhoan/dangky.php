@@ -19,7 +19,7 @@
             <div class="auth-action-left">
                 <div class="auth-form-outer">
                     <h2 class="auth-form-title">
-                        Create Account
+                        Đăng ký
                     </h2>
                     <div class="auth-external-container">
                         <div class="auth-external-list">
@@ -30,28 +30,25 @@
                                 <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                             </ul>
                         </div>
-                        <p class="auth-sgt">or use your email for registration:</p>
+                        <p class="auth-sgt">hoặc sử dụng email của bạn:</p>
                     </div>
 
                     <form class="login-form" action="index.php?act=dangky" method="post" onsubmit="return validateForm()">
                     
-                        <input type="text" name="username" class="auth-form-input" id="username" placeholder="Name" required>
+                        <input type="text" name="username" class="auth-form-input" id="username" placeholder="Họ tên" required>
         
                         <input type="email" name="email" class="auth-form-input" id="email" placeholder="Email" required>
 
                         <input type="text" name="tel" class="auth-form-input" placeholder="Phone number" required>
                 
-                        <input type="text" name="address" class="auth-form-input" placeholder="Address" required>
+                        <input type="text" name="address" class="auth-form-input" placeholder="Địa chỉ" required>
                         <div class="input-icon">
     
-                            <input type="password" name="pass" class="auth-form-input" placeholder="Password" required>
+                            <input type="password" name="pass" class="auth-form-input" placeholder="Mật khẩu" required>
                             <i class="fa fa-eye show-password"></i>
                         </div>
-                        <input type="password" class="auth-form-input" placeholder="Confirm Password" required>
-                        <label class="btn active">
-                            <input type="checkbox" checked>
-                            <i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>
-                            <span> I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</span>
+                        <input type="password" class="auth-form-input" placeholder="Xác nhận mật khẩu" required>
+                        
                         </label>
                         <div class="footer-action">
                             <input type="submit" name="dangky" value="Đăng ký" class="auth-submit">
