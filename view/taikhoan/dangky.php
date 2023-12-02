@@ -33,17 +33,21 @@
                         <p class="auth-sgt">or use your email for registration:</p>
                     </div>
 
-                    <form class="login-form" action="index.php?act=dangky" method="post">
-
-                        <input type="text" name="username" class="auth-form-input" placeholder="Name">
-                        <input type="email" name="email" class="auth-form-input" placeholder="Email">
-                        <input type="text" name="tel" class="auth-form-input" placeholder="Phone number">
-                        <input type="text" name="address" class="auth-form-input" placeholder="Address">
+                    <form class="login-form" action="index.php?act=dangky" method="post" onsubmit="return validateForm()">
+                        <label for="username">Name:</label>
+                        <input type="text" name="username" class="auth-form-input" id="username" placeholder="Name" required>
+                        <label for="email">Name:</label>
+                        <input type="email" name="email" class="auth-form-input" id="email" placeholder="Email" required>
+                        <label for="tel">Name:</label>
+                        <input type="text" name="tel" class="auth-form-input" placeholder="Phone number" required>
+                        <label for="address">Name:</label>
+                        <input type="text" name="address" class="auth-form-input" placeholder="Address" required>
                         <div class="input-icon">
-                            <input type="password" name="pass" class="auth-form-input" placeholder="Password">
+                        <label for="pass">Name:</label>
+                            <input type="password" name="pass" class="auth-form-input" placeholder="Password" required>
                             <i class="fa fa-eye show-password"></i>
                         </div>
-                        <input type="password" class="auth-form-input" placeholder="Confirm Password">
+                        <input type="password" class="auth-form-input" placeholder="Confirm Password" required>
                         <label class="btn active">
                             <input type="checkbox" checked>
                             <i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>

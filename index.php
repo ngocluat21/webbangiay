@@ -242,9 +242,25 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
       
         case "dangnhap":
-            if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
-                $pass = $_POST['pass'];
-                $username = $_POST['username'];
+            $erro='';
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['dangnhap']) && $_POST['dangnhap']) {
+                $username = htmlspecialchars($_POST["username"]);
+                $pass = htmlspecialchars($_POST["pass"]);
+            
+                // Kiểm tra thông tin đăng nhập
+                $valid_username = "your_username"; // Thay bằng tên đăng nhập hợp lệ
+                $valid_pass = "your_pass"; // Thay bằng mật khẩu hợp lệ
+            
+                if ($username === $valid_username && $pass === $valid_pass) {
+                    // Đăng nhập thành công, thực hiện các hành động sau đăng nhập
+                    echo "Đăng nhập thành công!";
+                } else {
+                    $erro = '<p style="color: red;">Thông tin đăng nhập không chính xác.</p>';
+                    // Đăng nhập không thành công, hiển thị thông báo đỏ
+                }
+            
+                // Kiểm tra thông tin đăng nhập bằng hàm checkusername (nếu cần)
                 $checkusername = checkusername($username, $pass);
 
                 if (is_array($checkusername)) {
@@ -268,9 +284,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                         unset($_SESSION['user_cart']);
                     }
 
-
                 } else {
-                    $thongbao = "Tai khoan khong ton tai";
+                    // header('Location: index.php');
+                    $thongbao = "tài khoản không tồn tại";
+
                 }
             }
 

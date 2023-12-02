@@ -50,7 +50,6 @@ if (isset($_GET['act'])) {
             include "danhmuc/list.php";
             break;
 
-
         //tài khoản
         case 'addtk':   
             include "taikhoan/add.php";
