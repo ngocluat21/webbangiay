@@ -11,10 +11,11 @@
     }
 
     function loadall_sanpham() {
-        $sql = "SELECT * FROM sanpham";
+        $sql = "SELECT * FROM sanpham WHERE status = 1";
         $listsp = pdo_query($sql);
         return $listsp;
     }
+
     function loadall_sanphamseach($kyw,$iddm){
         $sql="select * from sanpham where 1";
         if($kyw!=""){
@@ -27,6 +28,13 @@
         $listsanpham=pdo_query($sql);
         return $listsanpham;
     }
+
+    function loadall_sanpham_admin() {
+        $sql = "SELECT * FROM sanpham";
+        $listsp = pdo_query($sql);
+        return $listsp;
+    }
+
 
     function loadall_sanpham_home() {
         $sql = "SELECT sanpham.id, sanpham.namepro, sanpham.price, sanpham.discount, sanpham.img, sanpham.mota 
@@ -43,6 +51,7 @@
         $spcl = pdo_query($sql);
         return $spcl;
     }
+
     function load_ten_dm($iddm){
         if($iddm>0){
            $sql="select * from danhmuc where id=".$iddm;
@@ -66,13 +75,13 @@
     }
 
     function load_sp_nb() {
-        $sql = "SELECT * FROM sanpham ORDER BY luotxem DESC LIMIT 0,3";
+        $sql = "SELECT * FROM sanpham WHERE status = 1 ORDER BY luotxem DESC LIMIT 0,3";
         $listspnb = pdo_query($sql);
         return $listspnb;
     }
 
     function load_sp_dg() {
-        $sql = "SELECT * FROM sanpham WHERE price = (SELECT price FROM sanpham GROUP BY price HAVING COUNT(id) > 1) LIMIT 0,3";
+        $sql = "SELECT * FROM sanpham WHERE status = 1 AND price = (SELECT price FROM sanpham GROUP BY price HAVING COUNT(id) > 1) LIMIT 0,3";
         $dg = pdo_query($sql);
         // SELECT sp1.*, sp2.* 
         // FROM sanpham sp1
@@ -107,7 +116,7 @@
         return $allbt;
     }
     function loadone_spbt($idpro) {
-        $sql = "SELECT spbt.id as mabt, spbt.idpro as idpro, sanpham.img as img, sanpham.namepro as namepro, sanpham.price as price, sanpham.discount as discount, mausp.mau as mau, size.size as size
+        $sql = "SELECT spbt.id as mabt, spbt.idpro as idpro, spbt.soluong as soluongbt, sanpham.img as img, sanpham.namepro as namepro, sanpham.price as price, sanpham.discount as discount, mausp.mau as mau, size.size as size
                 FROM spbt 
                 JOIN sanpham ON spbt.idpro = sanpham.id
                 JOIN mausp ON spbt.idmau = mausp.id 
@@ -117,6 +126,16 @@
         $list_spbt = pdo_query($sql);
         return $list_spbt;
     }
+    // function loadone_bt($idbt) {
+    //     $sql = "SELECT mausp.mau as mau, size.size as size 
+    //             FROM spbt 
+    //             JOIN mausp ON spbt.idmau = mausp.id
+    //             JOIN size ON spbt.idsize = size.id
+    //             WHERE spbt.id=".$idbt;
+    //     $bt = pdo_query_one($sql);
+    //     return $bt;
+    // }
+
     function load_soluongbt($idpro) {
         $sql = "SELECT SUM(spbt.soluong) as soluong FROM spbt WHERE spbt.idpro = $idpro";
         $slbt = pdo_query($sql);
@@ -158,4 +177,10 @@
         $sql = "SELECT * FROM sanpham WHERE id=$iddm";
         $loadspdm = pdo_query($sql);
         return $loadspdm;
+    }
+
+    function loadall_spbt($idpro) {
+        $sql = "SELECT * FROM spbt WHERE spbt.idpro = $idpro";
+        $listall_bt = pdo_query($sql);
+        return $listall_bt;
     }

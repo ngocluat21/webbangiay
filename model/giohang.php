@@ -19,27 +19,44 @@
     }
 
     // đơn hàng
-    function loadall_bill_admin() {
+    // function loadall_bill_admin() {
+    //     $sql = "SELECT *, bill.id as id, SUM(cart.soluong) AS soluong 
+    //             FROM bill 
+    //             LEFT JOIN cart ON bill.id = cart.idbill 
+    //             GROUP BY bill.id 
+    //             ORDER BY bill_status=0 DESC";
+        
+    //     $listbill = pdo_query($sql);
+    //     return $listbill;
+    // }
+
+    function loadall_bill_admin($status = null) {
         $sql = "SELECT *, bill.id as id, SUM(cart.soluong) AS soluong 
                 FROM bill 
-                LEFT JOIN cart ON bill.id = cart.idbill 
-                GROUP BY bill.id 
-                ORDER BY bill.id DESC";
-        
+                LEFT JOIN cart ON bill.id = cart.idbill";
+    
+        if ($status !== null) {
+            $sql .= " WHERE bill.bill_status = $status";
+        }
+    
+        $sql .= " GROUP BY bill.id 
+                  ORDER BY bill_status=0 DESC";
+    
         $listbill = pdo_query($sql);
         return $listbill;
     }
     
-    function loadall_bill_adin() {
-        $sql = "SELECT bill.id as id, SUM(cart.soluong) AS soluong_tong, cart.idbill, cart.soluong 
-                FROM bill 
-                JOIN cart ON bill.id = cart.idbill 
-                GROUP BY cart.idbill, cart.soluong 
-                ORDER BY bill.id DESC";
+    
+    // function loadall_bill_adin() {
+    //     $sql = "SELECT bill.id as id, SUM(cart.soluong) AS soluong_tong, cart.idbill, cart.soluong 
+    //             FROM bill 
+    //             JOIN cart ON bill.id = cart.idbill 
+    //             GROUP BY cart.idbill, cart.soluong 
+    //             ORDER BY bill.id DESC";
         
-        $listbill = pdo_query($sql);
-        return $listbill;
-    }
+    //     $listbill = pdo_query($sql);
+    //     return $listbill;
+    // }
     
     function load_order($iduser) {
         $sql = "SELECT 
@@ -55,7 +72,9 @@
     WHERE 
         bill.iduser = $iduser
     GROUP BY 
-        bill.id, bill.ngaydathang, bill.total, bill.bill_status;
+        bill.id, bill.ngaydathang, bill.total, bill.bill_status
+    ORDER BY 
+        bill.bill_status = 1 DESC
     ";
         $loadallbill = pdo_query($sql);
         return $loadallbill;
@@ -65,11 +84,12 @@
         $keybill = pdo_query($sql);
         return $keybill;
     }
-    // function loadone_bill($idbill) {
+
+    // function load_cart_user($idbill, $iduser) {
     //     $sql = "SELECT * FROM cart 
-    //     WHERE id = $idbill";
-    //     $loadone_bill = pdo_query_one($sql);
-    //     return $loadone_bill;
+    //     WHERE cart.idbill = $idbill AND cart.iduser = $iduser";
+    //     $loadall_cartuser = pdo_query($sql);
+    //     return $loadall_cartuser;
     // }
     function loadall_cart($idbill, $keyid) {
         if ($idbill == $keyid) {
@@ -86,6 +106,11 @@
         $loadcart = pdo_query($sql);
         return $loadcart;
     }
+    function update_status_bill($idbill, $status) {
+        $sql = "UPDATE bill SET bill_status = $status WHERE id =". $idbill;
+        pdo_execute($sql);
+    }
+
     function get_ttdh($n) {
         switch($n) {
             case "0":

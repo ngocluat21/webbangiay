@@ -13,7 +13,7 @@
             }
             ?>
         </select>
-        <input type="submit" name="listok" value="FIND">
+        <input type="submit" name="listok" value="TÌM KIẾM">
     </form>
     <div class="row frmcontent">
         <div class="row mb10 frmdsloai">

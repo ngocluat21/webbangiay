@@ -14,14 +14,15 @@
                     </tr>
                     <?php foreach($loadallbill as $bill) {
                         extract($bill);
+                        $tddh = get_ttdh($bill_status);
                         echo '
                             <tr>
                                 <td>DA1 - '.$bill['id'].'</td>
                                 <td>'.$ngaydathang.'</td>
                                 <td>'.$soluong.'</td>
-                                <td>'.$total.' đ</td>
-                                <td>'.$bill_status.'</td>
-                                <td><a href="index.php?act=order&idbill='.$bill['id'].'"><input type="button" value="Chi tiết"></a></td>
+                                <td>'.format($total).' </td>
+                                <td>'.$tddh.'</td>
+                                <td><a href="index.php?act=order&idbill='.$bill['id'].'"><input type="button" value="Chi tiết" style="cursor: pointer;"></a></td>
                             </tr>
                         ';
                     }

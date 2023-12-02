@@ -68,6 +68,7 @@ if (isset($_GET['act'])) {
         case 'updatetk':
             include "taikhoan/list.php.php";
             break;
+
         //sản phẩm
         case 'addsp':
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
@@ -166,6 +167,7 @@ if (isset($_GET['act'])) {
             } elseif (isset($_POST['active'], $_GET['id'])) {
                 update_status_sp1($_GET['id']);
             }
+            $listsp = loadall_sanpham_admin();
             $listdm = loadall_danhmuc();
             $listsp = loadall_sanphamseach($kyw, $iddm);
             include "sanpham/list.php";
@@ -209,7 +211,7 @@ if (isset($_GET['act'])) {
             $list_m = loadall_mau();
             $list_s = loadall_size();
             $listdm = loadall_danhmuc();
-            $listsp = loadall_sanpham();
+            $listsp = loadall_sanpham_admin();
             include "sanpham/list.php";
             break;
 
@@ -240,9 +242,56 @@ if (isset($_GET['act'])) {
             $listbill = loadall_bill_admin();
             include "donhang/list.php";
             break;
+        case 'billct':
+            $idkh = loadallid_kh();
+            $listbill = loadall_bill_admin();
+            foreach ($idkh as $kh) {
+                $keybill = loadid_bill($kh['id']);
+            
+                foreach ($keybill as $key) {
+                    extract($key);
+            
+                    if (isset($_GET['idbill']) && $_GET['idbill'] == $key['id']) {
+                        $loadall_cart = loadall_cart($_GET['idbill'], $key['id']);
+                        foreach($loadall_cart as $cart) {
+                            extract($cart);
+                        }
+                    }
+                }
+            }
 
-
-
+            include "donhang/chitietbillkh.php";
+            break;
+        case 'updatettbill':
+            if(isset($_POST['xacnhan']) && isset($_POST['idbill'])) {
+                $idbill = $_POST['idbill'];
+                update_status_bill($idbill, 1);
+            }
+            if(isset($_POST['xacnhangiao']) && isset($_POST['idbill'])) {
+                $idbill = $_POST['idbill'];
+                update_status_bill($idbill, 2);
+            }
+            if(isset($_POST['hoanthanhgiao']) && isset($_POST['idbill'])) {
+                $idbill = $_POST['idbill'];
+                update_status_bill($idbill, 3);
+            }
+            $listbill = loadall_bill_admin();
+            include "donhang/list.php";
+            break;
+        case 'listdonhang':
+            if(isset($_POST['dangxuly'])) {
+                $listbill = loadall_bill_admin(1);
+            } else if (isset($_POST['danggiao'])) {
+                $listbill = loadall_bill_admin(2);
+            } else if (isset($_POST['hoanthanh'])) {
+                $listbill = loadall_bill_admin(3);
+            } else {
+                $listbill = loadall_bill_admin();
+            }
+            $thongbao = "Chưa có đơn hàng nào!";
+            include "donhang/list.php";
+            break;
+            
         default:
             include "home.php";
             break;

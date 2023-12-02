@@ -4,7 +4,7 @@
             <div class="auth-action-left">
                 <div class="auth-form-outer">
                     <h2 class="auth-form-title">
-                        Sign In
+                        Đăng Nhập
                     </h2>
                     <div class="auth-external-container">
                         <div class="auth-external-list">
@@ -15,7 +15,7 @@
                                 <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                             </ul>
                         </div>
-                        <p class="auth-sgt">or sign in with:</p>
+                        <p class="auth-sgt">hoặc đăng nhập với:</p>
                     </div>
                     <form class="login-form" action="index.php?act=dangnhap" method="post" onsubmit="return validateForm()">
                     <div class="input-group">
@@ -30,19 +30,20 @@
                         <label class="btn active">
                             <input type="checkbox" name='email' checked>
                             <i class="fa fa-square-o"></i><i class="fa fa-check-square-o"></i>
-                            <span> Remember password.</span>
+                            <span> Ghi nhớ mật khẩu.</span>
                         </label>
                         <br>
                         <?=$erro?>
                         
                         <div class="footer-action">
                             <input type="submit" value="Đăng nhập" name="dangnhap" class="auth-submit">
-                            <a href="register.html" class="auth-btn-direct">Đăng ký</a>
+                            <a href="index.php?act=dangky" class="auth-btn-direct">Đăng ký</a>
                         </div>
                     </form>
                     <div class="auth-forgot-password">
-                        <a href="index.php?act=quenmk">Forgot Password</a>
+                        <a href="index.php?act=quenmk">Quên mật khẩu</a>
                     </div>
+                    
                 </div>
             </div>
             <div class="auth-action-right">

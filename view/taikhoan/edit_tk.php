@@ -2,8 +2,8 @@
     <div class="title">CẬP NHẬT TÀI KHOẢN</div>
     <div class="">
         <?php
-        if (isset($_SESSION["username"]) && (is_array($_SESSION["username"]))) {
-            extract($_SESSION["username"]);
+        if (isset($_SESSION["user"]) && (is_array($_SESSION["user"]))) {
+            extract($_SESSION["user"]);
         }
         ?>
         <form action="index.php?act=edit_tk" method="post">

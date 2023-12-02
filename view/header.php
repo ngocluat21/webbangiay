@@ -43,6 +43,7 @@
             return true;
         }
     </script>
+
 </head>
 
 
@@ -67,10 +68,9 @@
                     <div class="icon_login">
                         <?php
                         if (isset($_SESSION['user']) && $_SESSION['user']) {
-                            // var_dump($_SESSION['nguoidung']);
                             echo 'Xin chào ' . $_SESSION['user']['username'];
                         } else {
-                            echo "Chưa đăng nhập";
+                            echo "";
                         }
                         ?>
                         <i class="fa-regular fa-user fa-lg"></i>
@@ -90,12 +90,12 @@
                             </a>
                         </li>
                         <li class="dropdown_item">
-                            <a href="donhangcuatoi.html" class="dropdown_link">
+                            <a href="index.php?act=yourcart" class="dropdown_link">
                                 <span class="dropdown_text">Đơn hàng của tôi</span>
                             </a>
                         </li>
                         <li class="dropdown_item">
-                            <a href="index.php?act=laymk" class="dropdown_link">
+                            <a href="index.php?act=quenmk" class="dropdown_link">
                                 <span class="dropdown_text">Quên mật khẩu</span>
                             </a>
                         </li>
@@ -111,30 +111,13 @@
                                 <i class="fa-solid fa-right-from-bracket"></i>
                             </a>
                         </li>
-                        <li class="dropdown_item">
-                            <?php
-                            // Assuming $role should be initialized to some default value if not set
-                            $role = isset($role) ? $role : 0;
-
-                            if ($role == 1) {
-                                // Your code here
-                            }
-                            ?>
-                            <a href="admin/index.php" class="dropdown_link">
-                                <span class="dropdown_text">Đăng nhập vào Admin</span>
-                                <i class="fa-solid fa-right-from-bracket"></i>
-                            </a>
-                        </li>
                     </ul>
                 </div>
                 <div class="icon_cart">
                     <?php 
                         $cartCount = 0;
-                        // var_dump($cart);
                         if(isset($_SESSION['mycart']) && is_array($_SESSION['mycart'])) {
                             foreach($_SESSION['mycart'] as $cart) {
-                                // var_dump($cart[7]);
-                                // var_dump($cartCount);
                                 $cartCount += (int)$cart[7];
                             }
                         } else {
