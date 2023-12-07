@@ -123,7 +123,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     }
                 }
         
-                echo "Cập nhật giỏ hàng thành công!";
             } 
             include "view/giohang/giohang.php";
             break;
