@@ -98,18 +98,23 @@
                             ';
                         }
                         ?>
-
                         <li class="dropdown_item">
                             <a href="index.php?act=quenmk" class="dropdown_link">
                                 <span class="dropdown_text">Quên mật khẩu</span>
                             </a>
                         </li>
-                        <li class="dropdown_item">
-                            <a href="index.php?act=edit_tk" class="dropdown_link">
-                                <span class="dropdown_text">Cập nhật tài khoản</span>
-                                <i class="fa-regular fa-address-card"></i>
-                            </a>
-                        </li>
+                        <?php
+                            if (isset($_SESSION['user'])) {
+                                echo '
+                                    <li class="dropdown_item">
+                                        <a href="index.php?act=edit_tk" class="dropdown_link">
+                                            <span class="dropdown_text">Cập nhật tài khoản</span>
+                                            <i class="fa-regular fa-address-card"></i>
+                                        </a>
+                                    </li>
+                                ';
+                            }
+                        ?>
                         <li class="dropdown_item">
                             <a href="index.php?act=dangxuat" class="dropdown_link">
                                 <span class="dropdown_text">Đăng xuất</span>

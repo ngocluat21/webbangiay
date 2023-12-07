@@ -228,13 +228,23 @@ if (isset($_GET['act'])) {
         case 'xoabl&id':
             include "binhluan/list.php";
             break;
+
+        // thống kê sản phẩm
         case 'thongke':
             $listthongke = loadall_thongke();
             include "thongke/list.php";
             break;
+        case 'thongkespngay':
+            $tksp_ngay = thongkesp_ngay();
+            include "thongke/thongkespngay.php";
+            break;
         case 'bieudo':
             $listthongke = loadall_thongke();
             include "thongke/bieudo.php";
+            break;
+        case 'bieudongay':
+            $tksp_ngay = thongke_sp_ngay();
+            include "thongke/bieudongay.php";
             break;
 
         // đơn hàng

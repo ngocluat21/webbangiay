@@ -28,7 +28,7 @@
                                         </div>
                                     </div>
                                     <div class="remote">
-                                        <div class="rm"><a href="sanphamct.php"><?=$sanpham['namepro']?></a></div>
+                                        <div class="rm"><a href="<?=$link?>"><?=$sanpham['namepro']?></a></div>
                                         <div class="price flex_c">
                                             <p><?=$sanpham['price']?><u>đ</u></p>
                                             <?php if ($sanpham['discount'] > 0) {
@@ -159,7 +159,7 @@
                                     </a>
                                 </div>
                                 <div class="remote">
-                                    <div class="rm"><a href="sanphamct.php"><?=$namepro?></a></div>
+                                    <div class="rm"><a href="<?=$link?>"><?=$namepro?></a></div>
                                     <div class="price flex_c">
                                         <p><?=$price?><u>đ</u></p>
                                         <?php if ($discount > 0) {

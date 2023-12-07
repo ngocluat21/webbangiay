@@ -109,6 +109,29 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $_SESSION['mycart'] = array_values($uniqueProducts);
             include "view/giohang/giohang.php";
             break;
+        case "updategiohang":
+            if (isset($_POST['soluongmoi']) && isset($_POST['product_id']) && $_POST['soluongmoi'] > 1 && isset($_SESSION['mycart'])) {
+                $soluong = (int)$_POST['soluongmoi'];
+                $productId = (int)$_POST['product_id'];
+                $ct = (int)$_POST['ct_value'];  // Lấy giá trị $ct từ trường input ẩn
+                
+                // Tìm và cập nhật chỉ sản phẩm được chọn
+                foreach ($_SESSION['mycart'] as $index => &$cart) {
+                    if ($index == $ct && $cart[0] == $productId) {
+                        $cart[7] = $soluong;
+                        break;
+                    }
+                }
+        
+                echo "Cập nhật giỏ hàng thành công!";
+            } 
+            include "view/giohang/giohang.php";
+            break;
+        
+            
+            
+            
+            
         case "delcart":
             if (isset($_GET['idcart'])) {
                 $idCart = (int)$_GET['idcart'];
