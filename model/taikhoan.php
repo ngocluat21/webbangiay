@@ -7,9 +7,6 @@ function insert_taikhoan($username, $pass, $email, $address, $tel)
 function checkusername($username, $pass)
 {
     $sql = "select * from taikhoan where username='" . $username . "' AND pass='" . $pass . "'";
-
-
-
     $tk = pdo_query_one($sql);
     return $tk;
 }
@@ -43,4 +40,3 @@ function loadallid_kh(){
     return $idkh;
 }
 ?>
-
