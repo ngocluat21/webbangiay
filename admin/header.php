@@ -32,6 +32,10 @@
                 <li><a href="index.php?act=dskh">KHÁCH HÀNG</a></li>
                 <li><a href="index.php?act=dsbl">BÌNH LUẬN</a></li>
                 <li><a href="index.php?act=donhang">ĐƠN HÀNG</a></li>
-                <li><a href="index.php?act=thongke">THỐNG KÊ</a></li>
+                <li><a href="index.php?act=thongke">THỐNG KÊ</a>
+                    <ul>
+                        <li><a href="index.php?act=thongkespngay">THỐNG KÊ SẢN PHẨM</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
