@@ -22,7 +22,12 @@
     
                     <div class="footer_About">
                         <h4 class="footer_About_para"><a class="footer_About_head" href="#">Dịch vụ khách hàng</a></h5>
-                        <h5 class="footer_About_para"><a class="footer_About_links" href="">Tài khoản của tôi</a></h5>
+                        <?php if (isset($_SESSION['user'])) {
+                            echo '
+                                <h5 class="footer_About_para"><a class="footer_About_links" href="index.php?act=edit_tk">Tài khoản của tôi</a></h5>
+                            ';
+                        }
+                        ?>
                         <h5 class="footer_About_para"><a class="footer_About_links" href="index.php?act=yourorder">Lịch sử đơn hàng</a></h5>
                     </div>
     

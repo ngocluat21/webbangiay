@@ -81,13 +81,8 @@
     }
 
     function load_sp_dg() {
-        $sql = "SELECT * FROM sanpham WHERE status = 1 AND price = (SELECT price FROM sanpham GROUP BY price HAVING COUNT(id) > 1) LIMIT 0,3";
+        $sql = "SELECT * FROM sanpham WHERE status = 1 AND (price, discount) IN (SELECT price, discount FROM sanpham GROUP BY price, discount HAVING COUNT(id) > 1) LIMIT 0,3";
         $dg = pdo_query($sql);
-        // SELECT sp1.*, sp2.* 
-        // FROM sanpham sp1
-        // JOIN sanpham sp2 ON sp1.price = sp2.price AND sp1.discount = sp2.discount
-        // WHERE sp1.id <> sp2.id
-        // LIMIT 0,3
         return $dg;
     }
 
