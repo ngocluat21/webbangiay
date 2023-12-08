@@ -56,6 +56,7 @@ if (isset($_GET['act'])) {
             break;
         case 'dskh':
             $listtaikhoan = loadall_taikhoan();
+
             include "taikhoan/list.php";
             break;
         case 'xoatk':
