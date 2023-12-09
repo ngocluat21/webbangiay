@@ -36,9 +36,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
         case "lienhe":
             include "view/lienhe.php";
             break;
-        case "gopy":
-            include "view/gopy.php";
-            break;
         case "hoidap":
             include "view/hoidap.php";
             break;
@@ -112,13 +109,32 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $_SESSION['mycart'] = array_values($uniqueProducts);
             include "view/giohang/giohang.php";
             break;
+        case "updategiohang":
+            if (isset($_POST['soluongmoi']) && isset($_POST['product_id']) && $_POST['soluongmoi'] > 1 && isset($_SESSION['mycart'])) {
+                $soluong = (int)$_POST['soluongmoi'];
+                $productId = (int)$_POST['product_id'];
+                $ct = (int)$_POST['ct_value'];  // Lấy giá trị $ct từ trường input ẩn
+                
+                // Tìm và cập nhật chỉ sản phẩm được chọn
+                foreach ($_SESSION['mycart'] as $index => &$cart) {
+                    if ($index == $ct && $cart[0] == $productId) {
+                        $cart[7] = $soluong;
+                        break;
+                    }
+                }
+        
+            } 
+            include "view/giohang/giohang.php";
+            break;
+        
+            
+            
+            
+            
         case "delcart":
             if (isset($_GET['idcart'])) {
                 $idCart = (int)$_GET['idcart'];
-                var_dump($idCart);
-                // array_splice($_SESSION['mycart'], $idCart, 1);
                 unset($_SESSION['mycart'][$idCart]);
-                // $_SESSION['mycart'] = array_values($_SESSION['mycart']);
             } else {
                 $_SESSION['mycart'] = [];
             }

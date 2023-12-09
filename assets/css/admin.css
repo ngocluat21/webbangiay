@@ -64,29 +64,78 @@
     border-right: 1px #CCC solid;
     border-bottom: 1px #CCC solid;
 }
+.menu {
+    background-color: #a0e188;
+    border-radius: 5px;
+}
 
-.menu ul{
-    padding: 0px 15px;
+.menu ul {
+    padding: 0;
+    margin: 0;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-}
-.menu ul li{
     list-style-type: none;
-    display: inline;
-    padding: 0px 15px;
 }
-.menu ul li a{
+
+.menu ul li {
+    position: relative;
+    display: inline-block;
+    padding: 15px;
+}
+
+.menu ul li a {
     text-decoration: none;
     color: #333;
     font-size: 15px;
     font-style: italic;
     font-weight: bold;
+    white-space: nowrap;
+    display: block;
 }
-.menu ul li a:hover{
+
+.menu ul li a:hover {
     color: white;
-    /* font-size: 0.8vw; */
 }
+
+/* Style cho dropdown menu */
+.menu ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    border-radius: 0 0 5px 5px;
+}
+
+.menu ul li:hover > ul {
+    display: block;
+}
+
+.menu ul ul li {
+    text-align: center;
+    display: block;
+    padding: 10px;
+}
+
+.menu ul ul a {
+    color: white;
+}
+
+.menu ul ul a:hover {
+    background-color: #555;
+}
+
+/* Hiệu ứng cho menu chính khi hover */
+.menu ul li:hover {
+    background-color: #555;
+}
+
+.menu ul li:hover > a {
+    color: white;
+}
+
+
+
 /*ADMIN*/
 .headeradmin{
     background-color: #EEE;

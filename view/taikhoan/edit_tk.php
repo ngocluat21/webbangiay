@@ -40,7 +40,6 @@
         </form>
         <h2 class="thongbao">
 
-
         </h2>
     </div>
 </div>

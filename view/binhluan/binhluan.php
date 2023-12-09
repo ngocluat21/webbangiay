@@ -67,14 +67,16 @@
         <div class="boxcontent binhluan">
             <table>
                 <?php
-                     foreach ($dsbl as $bl) {
+                      foreach ($dsbl as $bl) {
                         extract($bl);
-                        echo '<tr>
-                            <td>"'.$noidung.'"</td>
-                            <td>"'.$username.'"</td>
-                            <td>"'.$ngaybinhluan.'"</td>
-                        </tr>';
-                     }
+                        if ($status_bl != 0) {
+                            echo '<tr>
+                                <td>"' . $noidung . '"</td>
+                                <td>"' . $username . '"</td>
+                                <td>"' . $ngaybinhluan . '"</td>
+                            </tr>';
+                        }
+                    }
                 ?>
             </table>
         </div>
