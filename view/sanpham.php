@@ -9,11 +9,15 @@
             <div class="boxright">
                 <div class="kind_pro">
                     <div class="title">
-                        <p>Sản phẩm</p>
+                        <p>Sản Phẩm <?php
+                        echo $tendm;
+                        ?></p>
                     </div>
                     <div class="product">
                         <?php foreach($dssp as $sanpham) {
+                            
                             extract($sanpham);
+                        if($status != 0){
                             $link = "index.php?act=sanphamct&id=".$id;
                         ?>
                                 <div class="box_pro">
@@ -40,7 +44,7 @@
                                         </a>
                                     </div>
                                 </div>
-                        <?php } ?>
+                        <?php }} ?>
 
                     </div>
                 </div>

@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEB BÁN GIÀY</title>
     <link rel="shortcut icon" href="assets/images/logo-16x16.png" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/slider.css">
+    <link rel="stylesheet" href="assets/css/style.css?v= <?php echo time(); ?>">
+    <link rel="stylesheet" href="assets/css/slider.css"?v= <?php echo time(); ?>>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/loginandregister.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" 
@@ -57,9 +57,7 @@
                 <ul>
                     <li><a href="index.php">Trang chủ</a></li>
                     <li><a href="index.php?act=sanpham">Sản phẩm</a></li>
-                    <li><a href="index.php?act=gioithieu">Giới thiệu</a></li>
                     <li><a href="index.php?act=lienhe">Liên hệ</a></li>
-                    <li><a href="index.php?act=hoidap">Hỏi đáp</a></li>
                     <li><a href="index.php?act=gopy">Góp ý</a></li>
                 </ul>
             </div>
@@ -89,16 +87,15 @@
                                 <i class="fa-solid fa-right-to-bracket"></i>
                             </a>
                         </li>
-                        <?php
-                            if (isset($_SESSION['user'])) {
-                                echo '
-                                    <li class="dropdown_item">
-                                        <a href="index.php?act=yourorder" class="dropdown_link">
-                                            <span class="dropdown_text">Đơn hàng của tôi</span>
-                                        </a>
-                                    </li>
-                                ';
-                            }
+                        <?php if (isset($_SESSION['user'])) {
+                            echo '
+                                <li class="dropdown_item">
+                                    <a href="index.php?act=yourcart" class="dropdown_link">
+                                        <span class="dropdown_text">Đơn hàng của tôi</span>
+                                    </a>
+                                </li>
+                            ';
+                        }
                         ?>
                         <li class="dropdown_item">
                             <a href="index.php?act=quenmk" class="dropdown_link">

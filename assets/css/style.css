@@ -820,3 +820,24 @@ input[type=number]::-webkit-outer-spin-button {
     color: #4daa50;
     margin: 10px;
 }
+
+/* Bổ sung cho bảng danh sách Admin */
+.content table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.content th, .content td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.content th {
+    background-color: #f2f2f2;
+}
+
+.content tbody tr:hover {
+    background-color: #f9f9f9;
+}
