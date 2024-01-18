@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost:3308:3308
--- Thời gian đã tạo: Th12 07, 2023 lúc 02:12 AM
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th12 09, 2023 lúc 03:30 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
--- Phiên bản PHP: 8.1.17
+-- Phiên bản PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -46,25 +46,24 @@ CREATE TABLE `bill` (
 --
 
 INSERT INTO `bill` (`id`, `iduser`, `bill_name`, `bill_address`, `bill_tel`, `bill_email`, `bill_pttt`, `ngaydathang`, `total`, `bill_status`, `create_at`) VALUES
-(45, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '09:29:26pm 24/11/2023', 9000000, 1, '2023-12-06 21:23:30'),
-(46, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '06:37:36am 25/11/2023', 66800000, 1, '2023-12-06 20:23:30'),
-(48, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '01:24:28am 26/11/2023', 1060000, 0, '2023-12-03 21:23:30'),
-(49, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '01:46:40am 26/11/2023', 35000000, 0, '2023-12-04 21:23:30'),
-(50, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '02:11:44am 26/11/2023', 50000000, 0, '2023-12-02 21:23:30'),
-(51, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '06:38:54pm 26/11/2023', 25000000, 1, '2023-12-06 21:23:30'),
-(52, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '09:00:52pm 26/11/2023', 20000000, 2, '2023-12-05 21:23:30'),
-(53, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '09:48:20pm 26/11/2023', 23600000, 1, '2023-12-05 21:23:30'),
-(54, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '01:31:15am 28/11/2023', 2120000, 0, '2023-12-05 21:23:30'),
-(55, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '02:04:55am 28/11/2023', 2700000, 0, '2023-12-06 21:23:30'),
-(56, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '02:28:48am 28/11/2023', 1590000, 2, '2023-12-06 21:23:30'),
-(57, 5, 'Nguyễn Thành Nam', 'Hà Giang, Việt Nam', '0938429832', 'namnt@gmai.com', 0, '02:09:53am 30/11/2023', 1480000, 3, '2023-12-06 21:23:30'),
-(58, 5, 'Nguyễn Thành Nam', 'Hà Giang, Việt Nam', '0938429832', 'namnt@gmai.com', 0, '02:27:47am 30/11/2023', 3280000, 1, '2023-12-06 21:23:30'),
-(59, 6, 'Nguyễn Thành An', 'Vincent, Italia', '0932452944', 'annt@gmai.com', 0, '10:06:32am 30/11/2023', 4100000, 1, '2023-12-06 21:23:30'),
-(60, 8, 'Đặng Trường An3333', 'Hà Giang, Việt Nam', '0938492342', 'andt@gmail.com', 0, '02:53:21am 02/12/2023', 4650000, 3, '2023-12-03 21:23:30'),
-(61, 6, 'Nguyễn Thành An', 'Vincent, Italia', '0932452455', 'annt@gmai.com', 0, '03:59:49am 05/12/2023', 6560000, 0, '2023-12-03 21:23:30'),
-(62, 4, 'Ngô Ngọc Luật', 'Ba Vì, Việt Nam', '0768934352', 'ngocluatngo5@gmai.com', 0, '06:33:21pm 06/12/2023', 6510000, 0, '2023-12-01 00:33:21'),
-(63, 4, 'Ngô Ngọc Luật', 'Ba Vì, Việt Nam', '0768934352', 'ngocluatngo5@gmai.com', 0, '06:34:50pm 06/12/2023', 2460000, 0, '2023-12-01 00:34:50'),
-(64, 9, 'Đặng Trường Giang', 'Hà Giang, Việt Nam', '0938492323', 'giangdt@gmail.com', 0, '06:40:04pm 06/12/2023', 4750000, 0, '2023-12-07 00:40:04');
+(44, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '09:28:36pm 24/11/2023', 9000000, 0, '2023-12-07 07:46:28'),
+(45, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '09:29:26pm 24/11/2023', 9000000, 1, '2023-12-09 07:46:28'),
+(46, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '06:37:36am 25/11/2023', 66800000, 0, '2023-12-08 07:46:28'),
+(48, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '01:24:28am 26/11/2023', 1060000, 3, '2023-12-08 07:46:28'),
+(49, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '01:46:40am 26/11/2023', 35000000, 0, '2023-12-09 07:46:28'),
+(50, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '02:11:44am 26/11/2023', 50000000, 0, '2023-12-09 07:46:28'),
+(51, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '06:38:54pm 26/11/2023', 25000000, 0, '2023-12-09 07:46:28'),
+(52, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '09:00:52pm 26/11/2023', 20000000, 0, '2023-12-09 07:46:28'),
+(53, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '09:48:20pm 26/11/2023', 23600000, 0, '2023-12-07 07:46:28'),
+(54, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '01:31:15am 28/11/2023', 2120000, 0, '2023-12-09 07:46:28'),
+(55, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '02:04:55am 28/11/2023', 2700000, 0, '2023-12-09 07:46:28'),
+(56, 4, 'Ngô Ngọc Luật', 'Hà Nội, Việt Nam', '0768955786', 'ngocluatngo5@gmai.com', 0, '02:28:48am 28/11/2023', 1590000, 0, '2023-12-09 07:46:28'),
+(58, 8, 'admin', 'số nhà 92', '0978332056', 'ducmanh191201@gmail.com', 0, '08:07:23pm 28/11/2023', 820000, 0, '2023-12-09 07:46:28'),
+(59, 8, 'admin', 'số nhà 92', '0978332056', 'ducmanh191201@gmail.com', 0, '10:46:04am 29/11/2023', 820000, 0, '2023-12-09 07:46:28'),
+(60, 19, 'admin', '', '', '', 0, '01:54:03am 02/12/2023', 1640000, 0, '2023-12-09 07:46:28'),
+(61, 19, 'admin     ', ' sppodijdd    ', ' 7483457959    ', 'kanekimanh@gmail.com', 0, '05:37:41pm 04/12/2023', 1350000, 0, '2023-12-09 07:46:28'),
+(62, 22, 'tranmanh', 'số nhà 92', '0978332056', 'kanekimanh@gmail.com', 0, '02:35:29am 09/12/2023', 3280000, 3, '2023-12-09 08:35:29'),
+(63, 22, 'tranmanh', 'số nhà 92', '0978332056', 'kanekimanh@gmail.com', 0, '02:37:16am 09/12/2023', 2580000, 0, '2023-12-09 08:37:16');
 
 -- --------------------------------------------------------
 
@@ -86,7 +85,7 @@ CREATE TABLE `binhluan` (
 --
 
 INSERT INTO `binhluan` (`id`, `noidung`, `ngaybinhluan`, `iduser`, `idpro`, `status_bl`) VALUES
-(12, 'Sản phẩm đẹp', '06:20:51pm 22/11/2023', 4, 37, b'01'),
+(12, 'Sản phẩm đẹp', '22/11/2023', 4, 37, b'01'),
 (14, 'Sản phẩm chất lượng cao', '06:21:51pm 27/11/2023', 4, 47, b'01'),
 (15, 'Sản phẩm phong cách', '06:23:46pm 27/11/2023', 4, 46, b'01'),
 (16, 'Sản phẩm thời thượng', '06:33:26pm 27/11/2023', 4, 46, b'01'),
@@ -132,18 +131,14 @@ INSERT INTO `cart` (`id`, `iduser`, `idspbt`, `img`, `namepro`, `price`, `mau`, 
 (116, 4, 25, 'giay-converse-chuck-taylor-all-star-1970s-white-high-trang-co-cao-1.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 530000, 'yellow', 38, 4, 2120000, 54),
 (117, 4, 26, 'giay-louis-vuitton-lv-trainer-monogram-denim-white-blue.png', 'Giày Louis Vuitton LV Trainer Monogram Denim White Blue', 900000, 'Green', 39, 3, 2700000, 55),
 (118, 4, 25, 'giay-converse-chuck-taylor-all-star-1970s-white-high-trang-co-cao-1.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 530000, 'yellow', 38, 3, 1590000, 56),
-(119, 5, 25, 'giay-converse-chuck-taylor-all-star-1970s-white-high-trang-co-cao-1.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 530000, 'yellow', 38, 1, 1480000, 57),
-(120, 5, 23, '91.png', 'Giày MLB Bigball Chunky Boston Red Sox Màu Trắng Rep 1:1', 950000, 'red', 39, 1, 1480000, 57),
-(121, 5, 27, 'giay-af1-x-louis-vuitton-white-brown.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 820000, 'black', 39, 4, 3280000, 58),
-(122, 6, 27, 'giay-af1-x-louis-vuitton-white-brown.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 820000, 'black', 39, 5, 4100000, 59),
-(123, 8, 27, 'giay-af1-x-louis-vuitton-white-brown.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 820000, 'Black', 39, 2, 4650000, 60),
-(124, 8, 25, 'giay-converse-chuck-taylor-all-star-1970s-white-high-trang-co-cao-1.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 530000, 'Yellow', 38, 4, 4650000, 60),
-(125, 8, 36, 'giay-mlb-liner-mid-monogram-ny.png', 'Giày MLB Liner Mid Monogram NY', 890000, 'Yellow', 41, 1, 4650000, 60),
-(126, 6, 27, 'giay-af1-x-louis-vuitton-white-brown.png', 'Giày AF1 x Louis Vuitton White Brown', 820000, 'Black', 39, 8, 6560000, 61),
-(127, 4, 27, 'giay-af1-x-louis-vuitton-white-brown.png', 'Giày AF1 x Louis Vuitton White Brown', 820000, 'Black', 39, 6, 6510000, 62),
-(128, 4, 25, 'giay-converse-chuck-taylor-all-star-1970s-white-high-trang-co-cao-1.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 530000, 'Yellow', 38, 3, 6510000, 62),
-(129, 4, 27, 'giay-af1-x-louis-vuitton-white-brown.png', 'Giày AF1 x Louis Vuitton White Brown', 820000, 'Black', 39, 3, 2460000, 63),
-(130, 9, 23, '91.png', 'Giày MLB Bigball Chunky Boston Red Sox Màu Trắng Rep 1:1', 950000, 'Red', 39, 5, 4750000, 64);
+(119, 8, 27, 'giay-af1-x-louis-vuitton-white-brown.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 820000, 'black', 39, 1, 820000, 58),
+(120, 8, 27, 'giay-af1-x-louis-vuitton-white-brown.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 820000, '', 0, 1, 820000, 59),
+(121, 19, 27, 'giay-af1-x-louis-vuitton-white-brown.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 820000, '', 0, 1, 1640000, 60),
+(122, 19, 27, 'giay-af1-x-louis-vuitton-white-brown.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 820000, '', 0, 1, 1640000, 60),
+(123, 19, 27, 'giay-af1-x-louis-vuitton-white-brown.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 820000, 'black', 39, 1, 1350000, 61),
+(124, 19, 25, 'giay-converse-chuck-taylor-all-star-1970s-white-high-trang-co-cao-1.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 530000, 'yellow', 38, 1, 1350000, 61),
+(125, 22, 27, 'giay-af1-x-louis-vuitton-white-brown.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 820000, 'black', 39, 4, 3280000, 62),
+(126, 22, 21, 'giay-mlb-liner-mid-monogram-ny.png', 'Giày MLB Liner Mid Monogram NY', 860000, 'yellow', 41, 3, 2580000, 63);
 
 -- --------------------------------------------------------
 
@@ -162,13 +157,14 @@ CREATE TABLE `danhmuc` (
 --
 
 INSERT INTO `danhmuc` (`id`, `namedm`, `status`) VALUES
+(1, 'Thượng Đỉnh', b'1'),
 (18, 'Giày Nike', b'1'),
 (19, 'Giày Converse', b'1'),
 (20, 'Giày MLB', b'1'),
 (21, 'Giày Adidas', b'1'),
 (22, 'Giày Vans', b'1'),
-(23, 'Giày GUCCI', b'1'),
-(24, 'Giày LV', b'1');
+(23, 'Giày GUCCI', b'0'),
+(24, 'Giày LV', b'0');
 
 -- --------------------------------------------------------
 
@@ -187,9 +183,9 @@ CREATE TABLE `mausp` (
 
 INSERT INTO `mausp` (`id`, `mau`) VALUES
 (1, 'Green'),
-(2, 'Yellow'),
-(3, 'Black'),
-(4, 'Red');
+(2, 'yellow'),
+(3, 'black'),
+(4, 'red');
 
 -- --------------------------------------------------------
 
@@ -214,16 +210,16 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`id`, `namepro`, `price`, `discount`, `img`, `mota`, `luotxem`, `iddm`, `status`) VALUES
-(37, 'Giày Adidas Superstar Adifom Đen Siêu Cấp', 850000, 900000, 'adidas-superstar-adifom-den.png', 'Giày Adidas Superstar Adifom Đen Siêu Cấp với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 12, 21, b'00'),
-(38, 'Giày Adidas Superstar Adifom Trắng Siêu Cấp', 900000, 2000000, 'adidas-superstar-adifom-trang.png', 'Giày Adidas Superstar Adifom Trắng Siêu Cấp với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 9, 21, b'01'),
-(39, 'Giày Nike Air Jordan 1 Retro High Dior Like Auth 99%', 2500000, 5000000, '126.png', 'Giày Nike Air Jordan 1 Retro High Dior Like Auth 99% với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 33, 18, b'00'),
-(40, 'Giày MLB Liner Mid Monogram NY', 890000, 1500000, 'giay-mlb-liner-mid-monogram-ny.png', 'Giày MLB Liner Mid Monogram NY với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 61, 20, b'01'),
-(42, 'Giày Louis Vuitton LV Trainer Monogram Denim White Blue', 600000, 0, 'giay-louis-vuitton-lv-trainer-monogram-denim-white-blue.png', 'Giày Louis Vuitton LV Trainer Monogram Denim White Blue với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 2, 24, b'01'),
-(43, ' Giày LV Trainer Monogram Denim Đen Trắng Siêu Cấp Like Auth', 900000, 2000000, '1-1.png', 'Giày LV Trainer Monogram Denim Đen Trắng với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 4, 24, b'01'),
-(44, 'Giày Louis Vuitton LV Trainer Sneaker 1A9JHD Màu Trắng Vàng', 900000, 2000000, 'louis-vuitton-lv-trainer-sneaker-1a9jhd-mau-trang-vang.png', 'Giày Louis Vuitton LV Trainer Sneaker 1A9JHD Màu Trắng Vàng với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 13, 24, b'01'),
-(45, 'Giày MLB Bigball Chunky Boston Red Sox Màu Trắng Rep 1:1', 950000, 0, '91.png', 'Giày MLB Bigball Chunky Boston Red Sox Màu Trắng Rep 1:1 với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 13, 20, b'01'),
-(46, 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 530000, 0, 'giay-converse-chuck-taylor-all-star-1970s-white-high-trang-co-cao-1.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ cao với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 36, 19, b'01'),
-(47, 'Giày AF1 x Louis Vuitton White Brown', 820000, 1600000, 'giay-af1-x-louis-vuitton-white-brown.png', 'Giày AF1 x Louis Vuitton White Brown là phiên bản độc lạ hiện nay ở Việt Nam ít ai có. Shop nhập về được số lượng ít, giá cực tốt cho mọi người trải nghiệm.', 164, 24, b'01');
+(37, 'Giày Adidas Superstar Adifom Đen Siêu Cấp', 850000, 900000, 'adidas-superstar-adifom-den.png', 'Giày Adidas Superstar Adifom Đen Siêu Cấp với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 0, 21, b'01'),
+(38, 'Giày Adidas Superstar Adifom Trắng Siêu Cấp', 880000, 900000, 'adidas-superstar-adifom-trang.png', 'Giày Adidas Superstar Adifom Trắng Siêu Cấp với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 4, 21, b'01'),
+(39, 'Giày Nike Air Jordan 1 Retro High Dior Like Auth 99%', 2500000, 5000000, '126.png', 'Giày Nike Air Jordan 1 Retro High Dior Like Auth 99% với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 14, 18, b'01'),
+(40, 'Giày MLB Liner Mid Monogram NY', 860000, 1800000, 'giay-mlb-liner-mid-monogram-ny.png', 'Giày MLB Liner Mid Monogram NY với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 29, 20, b'01'),
+(42, 'Giày Louis Vuitton LV Trainer Monogram Denim White Blue', 900000, 2000000, 'giay-louis-vuitton-lv-trainer-monogram-denim-white-blue.png', 'Giày Louis Vuitton LV Trainer Monogram Denim White Blue với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 2, 24, b'01'),
+(43, ' Giày LV Trainer Monogram Denim Đen Trắng Siêu Cấp Like Auth', 900000, 2000000, '1-1.png', 'Giày LV Trainer Monogram Denim Đen Trắng với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 0, 24, b'01'),
+(44, 'Giày Louis Vuitton LV Trainer Sneaker 1A9JHD Màu Trắng Vàng', 900000, 2000000, 'louis-vuitton-lv-trainer-sneaker-1a9jhd-mau-trang-vang.png', 'Giày Louis Vuitton LV Trainer Sneaker 1A9JHD Màu Trắng Vàng với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 2, 24, b'01'),
+(45, 'Giày MLB Bigball Chunky Boston Red Sox Màu Trắng Rep 1:1', 950000, 0, '91.png', 'Giày MLB Bigball Chunky Boston Red Sox Màu Trắng Rep 1:1 với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 14, 20, b'01'),
+(46, 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 530000, 0, 'giay-converse-chuck-taylor-all-star-1970s-white-high-trang-co-cao-1.png', 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ cao với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.', 28, 19, b'01'),
+(47, 'Giày Converse Chuck Taylor All Star 1970s White – High Trắng Cổ Cao', 820000, 1600000, 'giay-af1-x-louis-vuitton-white-brown.png', 'Giày AF1 x Louis Vuitton White Brown là phiên bản độc lạ hiện nay ở Việt Nam ít ai có. Shop nhập về được số lượng ít, giá cực tốt cho mọi người trải nghiệm.', 39, 24, b'01');
 
 -- --------------------------------------------------------
 
@@ -243,8 +239,8 @@ CREATE TABLE `size` (
 INSERT INTO `size` (`id`, `size`) VALUES
 (1, 38),
 (2, 39),
-(3, 40),
-(4, 41);
+(3, 41),
+(4, 42);
 
 -- --------------------------------------------------------
 
@@ -282,27 +278,14 @@ INSERT INTO `spbt` (`id`, `idpro`, `idmau`, `idsize`, `soluong`, `status`) VALUE
 (17, 37, 4, 1, 43, b'01'),
 (18, 38, 3, 1, 30, b'01'),
 (19, 40, 3, 1, 10, b'01'),
-(20, 38, 1, 2, 11, b'01'),
+(20, 38, 1, 2, 1, b'01'),
 (21, 40, 2, 3, 20, b'01'),
 (22, 44, 2, 2, 5, b'01'),
 (23, 45, 4, 2, 20, b'01'),
 (24, 43, 3, 2, 10, b'01'),
 (25, 46, 2, 1, 3, b'01'),
 (26, 42, 1, 2, 10, b'01'),
-(27, 47, 3, 2, 10, b'01'),
-(28, 38, 4, 3, 20, b'01'),
-(29, 38, 4, 4, 3, b'01'),
-(30, 38, 2, 1, 3, b'01'),
-(31, 39, 2, 2, 5, b'01'),
-(32, 39, 3, 3, 5, b'01'),
-(33, 39, 4, 3, 5, b'01'),
-(34, 39, 2, 4, 5, b'01'),
-(35, 40, 1, 2, 20, b'01'),
-(36, 40, 2, 4, 20, b'01'),
-(37, 40, 4, 2, 5, b'01'),
-(38, 44, 1, 1, 10, b'01'),
-(39, 44, 2, 1, 5, b'01'),
-(40, 44, 1, 2, 5, b'01');
+(27, 47, 3, 2, 10, b'01');
 
 -- --------------------------------------------------------
 
@@ -325,12 +308,14 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`id`, `username`, `pass`, `email`, `address`, `tel`, `role`) VALUES
-(4, 'Ngô Ngọc Luật', '123456', 'ngocluatngo5@gmai.com', 'Ba Vì, Việt Nam', '0768934352', 0),
+(4, 'Ngô Ngọc Luật', '123456', 'ngocluatngo5@gmai.com', 'Hà Nội, Việt Nam', '0768955786', 0),
 (5, 'Nguyễn Thành Nam', '123456', 'namnt@gmai.com', 'Hà Giang, Việt Nam', '0938429832', 0),
 (6, 'Nguyễn Thành An', '123456', 'annt@gmai.com', 'Vincent, Italia', '0932452944', 0),
-(7, 'Nguyễn Thành Đông', '123456', 'dong07@gmai.com', 'Đà Nẵng, Việt Nam', '0768955786', 1),
-(8, 'Đặng Trường An', '123456', 'andt@gmail.com', 'Hà Giang, Việt Nam', '0938492342', 0),
-(9, 'Đặng Trường Giang', '1213456', 'giangdt@gmail.com', 'Hà Giang, Việt Nam', '0938492323', 0);
+(7, 'Nguyễn Thành Đông', '123456', 'dong07@gmai.com', 'Đà Nẵng, Việt Nam', '0768955786', 0),
+(8, 'admin required', '123456789 required', 'ducmanh191201@gmail.com', '', '0978332056 required', 0),
+(18, '', '123456789', 'ducmanh191201@gmail.com', 'admin', 'Trần Đức Mạnh', 0),
+(19, 'admin     ', '123456789     ', 'kanekimanh@gmail.com', ' sppodijdd    ', ' 7483457959    ', 1),
+(22, 'tranmanh', '123456789', 'kanekimanh@gmail.com', 'số nhà 92', '0978332056', 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -408,7 +393,7 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT cho bảng `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT cho bảng `binhluan`
@@ -420,7 +405,7 @@ ALTER TABLE `binhluan`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 
 --
 -- AUTO_INCREMENT cho bảng `danhmuc`
@@ -450,13 +435,13 @@ ALTER TABLE `size`
 -- AUTO_INCREMENT cho bảng `spbt`
 --
 ALTER TABLE `spbt`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

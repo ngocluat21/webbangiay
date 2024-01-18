@@ -15,9 +15,11 @@
                         <?php 
                             foreach ($loadsp as $sanpham) {
                                 extract($sanpham);
-                                $link = "index.php?act=sanphamct&id=".$sanpham['id'];
+                                   $link = "index.php?act=sanphamct&id=".$sanpham['id'];
                                 $hinh = $img_path.$sanpham['img'];
+                                if($status != 0){
                         ?>
+                        
                                 <div class="box_pro">
                                     <div class="img_pro">
                                         <a href="<?=$link?>">
@@ -70,7 +72,8 @@
                                         </form>
                                     </div>
                                 </div>
-                        <?php 
+                        <?php  
+                                }
                             } 
                         ?>
                         <!-- <div class="box_pro">
